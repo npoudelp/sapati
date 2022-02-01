@@ -1,0 +1,9 @@
+.logo{
+    font-family: monospace;
+}
+
+@media(min-width: 768px) {
+    .mail-box{
+        width:50%;
+    }
+}
