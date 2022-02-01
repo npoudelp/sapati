@@ -18,7 +18,7 @@
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
             <a href="#" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">X</button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink"><i class="bi bi-grid-3x3-gap"></i></button>
             <div class="container navbar-collapse justify-content-center" id="navlink">
                 <ul class="navbar-nav lead">
                     <li class="nav-item">
@@ -30,10 +30,10 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">Account</a>
                     </li>
+                    <li>
+                        <a href="#" class="btn btn-outline-warning">Login</a>
+                    </li>
                 </ul>
-            </div>
-            <div>
-                <a href="#" class="nav-link"><button class="btn btn-outline-warning">Login</button></a>
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@
                                     Be Independent
                                 </div>
                                 <div class="card-text lead">
-                                    Make the best life decission while sApati keeps the track of your 
+                                    Make the best life decission while sApati keeps the track of your
                                     every important transection.
                                 </div>
                             </div>
