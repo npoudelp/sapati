@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sApati</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
     <script src="./js/bootstrap.min.js"></script>
 
 </head>
@@ -46,7 +47,7 @@
                     <h1><span class="text-warning">Be your own</span> <span class="text-danger">Accountant</span></h1>
                     <p class="lead my-4">
                         Why not manage your every finances with the digital button of your own?<br>
-                        Be smart choose <span class="text-warning">sApati</span>.
+                        Be smart choose <span class="text-warning">sApati</span>
                     </p>
                     <button class="btn btn-outline-warning">Join Us</button>
                 </div>
@@ -83,7 +84,62 @@
                     <div class="card bg-dark text-light">
                         <div class="card bg-dark">
                             <div class="card-body text-center">
-                                
+                                <i class="bi bi-people h1 mb-3"></i>
+                                <div class="card-title mb-3 h4 text-warning">
+                                    Come Closer
+                                </div>
+                                <div class="card-text lead">
+                                    Feeling lost in large friends group in social media?
+                                    Come one step closer to the friends which who you share your memories.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card bg-dark">
+                            <div class="card-body text-center">
+                                <i class="bi bi-people h1 mb-3"></i>
+                                <div class="card-title mb-3 h4 text-warning">
+                                    Come Closer
+                                </div>
+                                <div class="card-text lead">
+                                    Feeling lost in large friends group in social media?
+                                    Come one step closer to the friends which who you share your memories.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card bg-dark">
+                            <div class="card-body text-center">
+                                <i class="bi bi-people h1 mb-3"></i>
+                                <div class="card-title mb-3 h4 text-warning">
+                                    Come Closer
+                                </div>
+                                <div class="card-text lead">
+                                    Feeling lost in large friends group in social media?
+                                    Come one step closer to the friends which who you share your memories.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card bg-dark">
+                            <div class="card-body text-center">
+                                <i class="bi bi-people h1 mb-3"></i>
+                                <div class="card-title mb-3 h4 text-warning">
+                                    Come Closer
+                                </div>
+                                <div class="card-text lead">
+                                    Feeling lost in large friends group in social media?
+                                    Come one step closer to the friends which who you share your memories.
+                                </div>
                             </div>
                         </div>
                     </div>
