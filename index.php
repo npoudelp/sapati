@@ -18,22 +18,30 @@
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
             <a href="#" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink"><i class="bi bi-grid-3x3-gap"></i></button>
-            <div class="container navbar-collapse justify-content-center" id="navlink">
-                <ul class="navbar-nav lead">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Friends</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Account</a>
-                    </li>
-                    <li>
-                        <a href="#" class="btn btn-outline-warning">Login</a>
-                    </li>
-                </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
+                <i class="bi bi-grid-3x3-gap"></i>
+            </button>
+            <div class="container collapse navbar-collapse justify-content-center" id="navlink">
+                <div class="d-lg-flex">
+                    <div class="container">
+                        <ul class="navbar-nav lead">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Friends</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Account</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-outline-warning">Login</a>
+                        </li>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -65,8 +73,8 @@
                     <span class="text-dark h3 mb-3 mb-md-0">Be helpful to our project, connect with us</span>
                 </div>
 
-                <div class="input-group mail-box">
-                    <input type="text" class="form-control" placeholder="Your Email Address">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="@email address">
                     <div class="input-group-append">
                         <button class="btn btn-dark" type="button">Send</button>
                     </div>
@@ -80,8 +88,8 @@
     <section class="p-3">
         <div class="container">
             <div class="row">
-                <div class="col-md p-3 shadow" style="height:400px;">
-                    <div class="card bg-dark text-light h-100">
+                <div class="col-lg p-3 shadow" style="height:400px;">
+                    <div class="card bg-dark text-light h-100 justify-content-center">
                         <div class="card bg-dark">
                             <div class="card-body text-center">
                                 <i class="bi bi-person-fill display-1"></i><i class="bi bi-heart-fill h1 text-danger"></i><i class="bi bi-person display-1"></i>
@@ -89,7 +97,7 @@
                                     Come Closer
                                 </div>
                                 <div class="card-text lead">
-                                    Feeling lost in large friends group in social media?
+                                    Feeling lost in large friends group of social media?
                                     Come one step closer to the friends which who you share your memories.
                                 </div>
                             </div>
@@ -97,7 +105,7 @@
                     </div>
                 </div>
                 <div class="col-md p-3 shadow" style="height:400px;">
-                    <div class="card bg-dark text-light h-100">
+                    <div class="card bg-dark text-light h-100 justify-content-center">
                         <div class="card bg-dark">
                             <div class="card-body text-center">
                                 <i class="bi bi-card-checklist display-1"></i>
@@ -112,7 +120,7 @@
                     </div>
                 </div>
                 <div class="col-md p-3 shadow" style="height:400px;">
-                    <div class="card bg-dark text-light h-100">
+                    <div class="card bg-dark text-light h-100 justify-content-center">
                         <div class="card bg-dark">
                             <div class="card-body text-center">
                                 <i class="bi bi-person-square display-1"></i>
@@ -127,11 +135,11 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
+    <!-- promotion ends here -->
+
 </body>
 
 </html>
