@@ -38,7 +38,7 @@
                     </div>
                     <div class="container">
                         <li class="nav-item">
-                            <a href="#" class="btn btn-outline-warning">SignUp</a>
+                            <a href="./register.php" class="btn btn-outline-warning">SignUp</a>
                         </li>
                     </div>
                 </div>
@@ -49,21 +49,26 @@
 
     <!-- login form starts here -->
     <section class="p-3 text-center">
-        <div class="container w-50 border border-warning">
-            <div class="w-50 text-center container p-3 lead">
+        <div class="container border border-warning">
+            <div class="text-center container p-3 lead">
                 <form class="form-signin">
-                    <span class="h1 text-warning rounded mb-3 fw-bold logo">sApati</span><br>
+                    <h1 class="border">
+                        <span class="h1 text-warning rounded mb-3 fw-bold logo">sApati</span>
+                    </h1>
+                    <br>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="Email address" required autofocus>
+                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="@email address" required autofocus>
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" minlength="8" required>
+                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" minlength="8" required>
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" value="remember-me" checked> Remember me
+                            <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
                     <button class="btn btn-lg btn-outline-warning btn-block" type="submit">Sign in</button>
-                    <p class="mt-5 mb-3 text-muted">&copy; <?php echo date("Y"); ?> </p>
+                    <hr class="text-muted">
+                    <p class="mb-3 text-muted">&copy; <?php echo date("Y"); ?> </p>
+                    <hr class="text-muted">
                 </form>
             </div>
         </div>
@@ -118,4 +123,4 @@
     </footer>
 </body>
 
-</html>
+</html> 
