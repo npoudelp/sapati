@@ -26,13 +26,13 @@
                     <div class="container">
                         <ul class="navbar-nav lead">
                             <li class="nav-item">
-                                <a href="./index.php" class="nav-link active">Home</a>
+                                <a href="../index.php" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./pages/friends.php" class="nav-link">Friends</a>
+                                <a href="./friends.php" class="nav-link">Friends</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./pages/accounts.php" class="nav-link">Account</a>
+                                <a href="./accounts.php" class="nav-link">Account</a>
                             </li>
                         </ul>
                     </div>
