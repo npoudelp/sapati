@@ -26,13 +26,13 @@
                     <div class="container">
                         <ul class="navbar-nav lead">
                             <li class="nav-item">
-                                <a href="../index.php" class="nav-link">Home</a>
+                                <a href="./index.php" class="nav-link active">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Friends</a>
+                                <a href="./pages/friends.php" class="nav-link">Friends</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Account</a>
+                                <a href="./pages/accounts.php" class="nav-link">Account</a>
                             </li>
                         </ul>
                     </div>
@@ -97,4 +97,4 @@
     </footer>
 </body>
 
-</html> 
+</html>
