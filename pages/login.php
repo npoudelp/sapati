@@ -26,7 +26,7 @@
                     <div class="container">
                         <ul class="navbar-nav lead">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Home</a>
+                                <a href="../index.php" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">Friends</a>
