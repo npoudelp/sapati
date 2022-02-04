@@ -38,7 +38,7 @@
                     </div>
                     <div class="container">
                         <li class="nav-item">
-                            <a href="./register.php" class="btn btn-outline-warning">SignUp</a>
+                            <a href="./login.php" class="btn btn-outline-warning">SignUp</a>
                         </li>
                     </div>
                 </div>
