@@ -57,7 +57,7 @@
                         Why not manage your every finances with the digital button of your own?<br>
                         Be smart choose <span class="text-warning">sApati</span>
                     </p>
-                    <button class="btn btn-outline-warning">Join Us</button>
+                    <a href="./pages/register.php" class="btn btn-outline-warning">Join Us</a>
                 </div>
                 <img class="img-fluid w-50 d-none d-sm-block" src="./images/showcase.png" alt="">
             </div>
