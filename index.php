@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php ?>
 <html lang="en">
 
 <head>
@@ -17,7 +17,7 @@
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
-            <a href="#" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+            <a href="./index.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="container">
                         <li class="nav-item">
-                            <a href="#" class="btn btn-outline-warning">Login</a>
+                            <a href="./pages/login.php" class="btn btn-outline-warning">SignIn</a>
                         </li>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="card-text lead">
                                     Feeling lost in large friends group of social media?
-                                    Come one step closer to the friends which who you share your memories.
+                                    Come one step closer to the friends with whom you share your memories.
                                 </div>
                             </div>
                         </div>
@@ -140,6 +140,51 @@
     </section>
     <!-- promotion ends here -->
 
+    <!-- mapping starts here -->
+    <section class="bg-dark p-3">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md text-light">
+                    <h2 class="mb-4">
+                        Contact Info
+                    </h2>
+                    <i class="bi bi-geo-alt h1 text-warning">&nbsp;&nbsp;</i><span class="lead">Biratnagar, Province 1, Nepal</span><br>
+                    <i class="bi bi-envelope h1 text-warning">&nbsp;&nbsp;</i><span class="lead">info@sapati.com</span><br>
+                    <i class="bi bi-telephone h1 text-warning">&nbsp;&nbsp;</i><span class="lead">+977-9800110011</span>
+                </div>
+                <div class="col-md text-light ">
+                    <iframe class="h-100 w-100 my-0 mx-0" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3572.3040646729582!2d87.2755849!3d26.445926!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1643798027732!5m2!1sen!2snp" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- mapping ends here -->
+
+    <!-- misc section -->
+    <section class="p-1 bg-warning">
+        <div class="container text-dark text-center">
+            <span class="h1 lead fw-bold text-dark">
+                <?php $year = date("F");
+                $month = date("jS");
+                $day = date("Y");
+                echo $year . " " . $month . " " . $day;
+                ?>
+                <?php $year = date("l");
+                echo $year;
+                ?>
+        </div>
+    </section>
+    <!-- misc ends -->
+
+    <!-- footer starts here -->
+    <footer class="p-1 bg-dark text-white text-center position-relative">
+        <div class="container">
+            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong class="text-warning"> sApati </strong></p>
+            <a href="#navlink" class="position-absolute end-0 bottom-0 p-1 my-1 h1 text-warning">
+                <i class="bi bi-arrow-up-circle"></i>
+            </a>
+        </div>
+    </footer>
 </body>
 
 </html>
