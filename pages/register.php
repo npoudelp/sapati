@@ -38,7 +38,7 @@
                     </div>
                     <div class="container">
                         <li class="nav-item">
-                            <a href="./login.php" class="btn btn-outline-warning">SignIn</a>
+                            <a href="./login.php" class="btn btn-outline-warning">Sign In</a>
                         </li>
                     </div>
                 </div>
@@ -64,12 +64,7 @@
                     <input type="password" id="inputPassword" class="form-control mb-3" placeholder="password" minlength="8" required>
                     <label for="inputEmail" class="sr-only">Confirm Password</label>
                     <input type="email" id="inputEmail" class="form-control mb-3" placeholder="confirm password" required>
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
-                    <button class="btn btn-lg btn-outline-warning btn-block" type="submit">Sign in</button>
+                    <button class="btn btn-lg btn-outline-warning btn-block" type="submit">Sign Up</button>
                     <hr class="text-muted">
                     <p class="mb-3 text-muted">&copy; <?php echo date("Y"); ?> </p>
                     <hr class="text-muted">

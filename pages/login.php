@@ -38,7 +38,7 @@
                     </div>
                     <div class="container">
                         <li class="nav-item">
-                            <a href="./register.php" class="btn btn-outline-warning">SignUp</a>
+                            <a href="./register.php" class="btn btn-outline-warning">Sign Up</a>
                         </li>
                     </div>
                 </div>
@@ -65,7 +65,10 @@
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
-                    <button class="btn btn-lg btn-outline-warning btn-block" type="submit">Sign in</button>
+                    <button class="btn btn-lg btn-outline-warning btn-block" type="submit">Sign in</button><br>
+                    <a href="./register.php" class="nav-link">
+                        <sapn class="lead text-primary">Dont have an account?</sapn>
+                    </a>
                     <hr class="text-muted">
                     <p class="mb-3 text-muted">&copy; <?php echo date("Y"); ?> </p>
                     <hr class="text-muted">
