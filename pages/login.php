@@ -69,9 +69,6 @@
                     <a href="./register.php" class="nav-link">
                         <sapn class="lead text-primary">Dont have an account?</sapn>
                     </a>
-                    <hr class="text-muted">
-                    <p class="mb-3 text-muted">&copy; <?php echo date("Y"); ?> </p>
-                    <hr class="text-muted">
                 </form>
             </div>
         </div>
