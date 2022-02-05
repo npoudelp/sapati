@@ -28,11 +28,11 @@
                             <li class="nav-item">
                                 <a href="./index.php" class="nav-link active">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="./pages/friends.php" class="nav-link">Friends</a>
+                            <li class="nav-item disabled">
+                                <a href="./pages/friends.php" class="nav-link disabled">Friends</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="./pages/accounts.php" class="nav-link">Account</a>
+                            <li class="nav-item disabled">
+                                <a href="./pages/accounts.php" class="nav-link disabled">Account</a>
                             </li>
                         </ul>
                     </div>
