@@ -61,7 +61,7 @@
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" class="form-control mb-3" placeholder="@email address" required>
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder="password" minlength="8" required>
+                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder="password" minlength="4" required>
                     <label for="inputEmail" class="sr-only">Confirm Password</label>
                     <input type="email" id="inputEmail" class="form-control mb-3" placeholder="confirm password" required>
                     <button class="btn btn-lg btn-outline-warning btn-block" type="submit">Sign Up</button>
@@ -110,14 +110,9 @@
     <!-- misc ends -->
 
     <!-- footer starts here -->
-    <footer class="p-1 bg-dark text-white text-center position-relative">
-        <div class="container">
-            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong class="text-warning"> sApati </strong></p>
-            <a href="#navlink" class="position-absolute end-0 bottom-0 p-1 my-1 h1 text-warning">
-                <i class="bi bi-arrow-up-circle"></i>
-            </a>
-        </div>
-    </footer>
+    <?php
+    include_once('../includes/footer.php');                     
+    ?>
 </body>
 
 </html>

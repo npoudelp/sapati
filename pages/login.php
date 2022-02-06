@@ -1,6 +1,4 @@
-<?php ?>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,15 +49,15 @@
     <section class="p-3 text-center">
         <div class="container border border-warning">
             <div class="text-center container p-3 lead">
-                <form class="form-signin">
+                <form class="form-signin" method="GET" action="../includes/loginCheck.php">
                     <h1 class="border">
                         <span class="h1 text-warning rounded mb-3 fw-bold logo">sApati</span>
                     </h1>
                     <br>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="@email address" required autofocus>
+                    <input type="email" id="inputEmail" class="form-control mb-3" name="userName" placeholder="@email address" required autofocus>
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" minlength="8" required>
+                    <input type="password" id="inputPassword" class="form-control mb-3" name="userPassword" placeholder="Password" minlength="4" required>
                     <div class="checkbox mb-3">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me
@@ -113,14 +111,9 @@
     <!-- misc ends -->
 
     <!-- footer starts here -->
-    <footer class="p-1 bg-dark text-white text-center position-relative">
-        <div class="container">
-            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong class="text-warning"> sApati </strong></p>
-            <a href="#navlink" class="position-absolute end-0 bottom-0 p-1 my-1 h1 text-warning">
-                <i class="bi bi-arrow-up-circle"></i>
-            </a>
-        </div>
-    </footer>
+    <?php
+    include_once('../includes/footer.php');                     
+    ?>
 </body>
 
 </html>
