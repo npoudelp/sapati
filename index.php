@@ -38,7 +38,7 @@
                     </div>
                     <div class="container">
                         <li class="nav-item">
-                            <a href="./pages/login.php" class="btn btn-outline-warning">SignIn</a>
+                            <a href="./pages/login.php" class="btn btn-outline-warning">Sign In</a>
                         </li>
                     </div>
                 </div>
@@ -177,14 +177,10 @@
     <!-- misc ends -->
 
     <!-- footer starts here -->
-    <footer class="p-1 bg-dark text-white text-center position-relative">
-        <div class="container">
-            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong class="text-warning"> sApati </strong></p>
-            <a href="#navlink" class="position-absolute end-0 bottom-0 p-1 my-1 h1 text-warning">
-                <i class="bi bi-arrow-up-circle"></i>
-            </a>
-        </div>
-    </footer>
+    <?php
+    include_once('./includes/footer.php');                     
+    ?>
+
 </body>
 
 </html>
