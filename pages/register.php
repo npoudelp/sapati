@@ -51,21 +51,21 @@
     <section class="p-3 text-center">
         <div class="container border border-warning">
             <div class="text-center container p-3 lead">
-                <form class="form-signin">
+                <form class="form-signin" method="post" action="../includes/registerCheck.php">
                     <h1 class="border">
                         <span class="h1 text-warning rounded mb-3 fw-bold logo">sApati</span>
                     </h1>
                     <br>
                     <label for="inputEmail" class="sr-only">User Name</label>
-                    <input type="text" id="inputEmail" class="form-control mb-3" placeholder="user name" required autofocus>
+                    <input type="text" name="userName" id="inputEmail" class="form-control mb-3" placeholder="user name" required autofocus>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="@email address" required>
+                    <input type="email" name="emailId" id="inputEmail" class="form-control mb-3" placeholder="@email address" required>
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control mb-3" placeholder="password" minlength="4" required>
+                    <input type="password" id="inputPassword" name="password" class="form-control mb-3" placeholder="password" minlength="4" required>
                     <label for="inputEmail" class="sr-only">Confirm Password</label>
-                    <input type="email" id="inputEmail" class="form-control mb-3" placeholder="confirm password" required>
-                    <button class="btn btn-lg btn-outline-warning btn-block" type="submit">Sign Up</button>
-                
+                    <input type="password" name="passwordR" id="inputEmail" class="form-control mb-3" placeholder="confirm password" required>
+                    <button class="btn btn-lg btn-outline-warning btn-block" name="submit" type="submit">Sign Up</button>
+
                 </form>
             </div>
         </div>
@@ -111,7 +111,7 @@
 
     <!-- footer starts here -->
     <?php
-    include_once('../includes/footer.php');                     
+    include_once('../includes/footer.php');
     ?>
 </body>
 
