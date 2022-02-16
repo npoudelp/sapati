@@ -1,10 +1,10 @@
 <?php
 
-function matchPassword($password, $passwordR){
-    if($password !== $passwordR){
+function matchPassword($password, $passwordR)
+{
+    if ($password !== $passwordR) {
         return false;
-    }
-    else{
+    } else {
         return true;
     }
 }
