@@ -55,15 +55,15 @@
                     </h1>
                     <br>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control mb-3" name="userName" placeholder="@email address" required autofocus>
+                    <input type="email" id="inputEmail" class="form-control mb-3" name="emailId" placeholder="@email address" required autofocus>
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control mb-3" name="userPassword" placeholder="Password" minlength="4" required>
+                    <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" minlength="4" required>
                     <div class="checkbox mb-3">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
-                    <button class="btn btn-lg btn-outline-warning btn-block" type="submit">Sign in</button><br>
+                    <button class="btn btn-lg btn-outline-warning btn-block" type="submit" name="submit">Sign in</button><br>
                     <a href="./register.php" class="nav-link">
                         <sapn class="lead text-primary">Dont have an account?</sapn>
                     </a>
