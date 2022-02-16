@@ -1,16 +1,31 @@
 <?php
 
-include_once './loginCheck.php';
-$userName = $_GET["userName"];
-$userPassword = $_GET["userPassword"];
+if (isset($_POST['submit'])) {
 
-$sql = "SELECT * FROM loginData WHERE userName=".$userName.";";
-$result = mysqli_query($conn, $sql);
-$resultCheck = mysqli_num_rows($result);
-if ($resultCheck > 0) {
-    echo $result . "<br>";
+    $emailId = $_POST['emailId'];
+    $password = $_POST['password'];
+
+    include_once('./dbConn.php');
+    $sql = "SELECT * FROM loginData WHERE emailId = '" . $emailId . "';";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $hash = $row["password"];
+            $passwordH = password_verify($password, $hash);
+            if ($row["emailId"] == $emailId && $passwordH == 1) {
+                //echo $row["password"]."<br>".$passwordH;
+                header('location: ../pages/profile.php');
+            }
+            else{
+                header('location: ../pages/login.php?password_not_matched');
+            }
+        }
+    } else {
+        header('location: ../pages/login.php?email_not_matched');
+    }
+
+    mysqli_close($conn);
+} else {
+    header('location: ../pages/login.php');
 }
-echo $userName . "<br>";
-echo $userPassword . "<hr>";
-
-?>
