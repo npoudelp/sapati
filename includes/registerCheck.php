@@ -4,13 +4,15 @@ if (isset($_POST['submit'])) {
     $emailId = $_POST['emailId'];
     $password = $_POST['password'];
     $passwordR = $_POST['passwordR'];
+    $passwordH = password_hash($password, PASSWORD_DEFAULT);
+
 
     include_once('./function.php');
 
     if (matchPassword($password, $passwordR) !== false) {
         include_once('./dbConn.php');
 
-        $sql = "INSERT INTO loginData value ('" . $userName . "', '" . $emailId . "', '" . $password . "');";
+        $sql = "INSERT INTO loginData value ('" . $userName . "', '" . $emailId . "', '" . $passwordH . "');";
         $sqlCheck = "SELECT emailId FROM loginData WHERE emailId = '" . $emailId . "';";
         $chaeckEmail = mysqli_query($conn, $sqlCheck);
         if ($chaeckEmail) {
