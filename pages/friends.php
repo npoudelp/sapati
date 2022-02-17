@@ -1,4 +1,6 @@
-<?php ?>
+<?php
+session_start();
+?>
 <html lang="en">
 
 <head>
@@ -38,7 +40,7 @@
                     </div>
                     <div class="container">
                         <li class="nav-item">
-                            <a href="../index.php" class="btn btn-outline-warning">Sign Out</a>
+                            <a href="../index.php" class="btn btn-outline-warning">Log Out</a>
                         </li>
                     </div>
                 </div>
@@ -47,28 +49,18 @@
     </div>
     <!-- navbar ends here -->
 
+    <!-- friends starts here -->
+    <section class="p-3 text-warning">
+        <div class="container text-center">
+            <label for="userName" class="lead">
+                <a href="./addFriends.php" class="btn btn-lg btn-outline-dark btn-block">Add Friends</a>
+                Hello friends <?php echo $_SESSION["userName"]; ?>
 
 
-
-    <!-- mapping starts here -->
-    <section class="bg-dark p-3">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md text-light">
-                    <h2 class="mb-4">
-                        Contact Info
-                    </h2>
-                    <i class="bi bi-geo-alt h1 text-warning">&nbsp;&nbsp;</i><span class="lead">Biratnagar, Province 1, Nepal</span><br>
-                    <i class="bi bi-envelope h1 text-warning">&nbsp;&nbsp;</i><span class="lead">info@sapati.com</span><br>
-                    <i class="bi bi-telephone h1 text-warning">&nbsp;&nbsp;</i><span class="lead">+977-9800110011</span>
-                </div>
-                <div class="col-md text-light ">
-                    <iframe class="h-100 w-100 my-0 mx-0" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3572.3040646729582!2d87.2755849!3d26.445926!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1643798027732!5m2!1sen!2snp" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+            </label>
         </div>
     </section>
-    <!-- mapping ends here -->
+    <!-- friends ends here -->
 
     <!-- misc section -->
     <section class="p-1 bg-warning">
@@ -88,7 +80,7 @@
 
     <!-- footer starts here -->
     <?php
-    include_once('../includes/footer.php');                     
+    include_once('../includes/footer.php');
     ?>
 </body>
 
