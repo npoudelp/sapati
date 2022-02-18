@@ -27,21 +27,26 @@ session_start();
                 <div class="d-lg-flex">
                     <div class="container">
                         <ul class="navbar-nav lead">
-                            <li class="nav-item">
-                                <a href="../index.php" class="nav-link">Home</a>
+                            <li class="nav-item mx-3">
+                                <a href="./profile.php" class="nav-link">Profile</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-3">
                                 <a href="./friends.php" class="nav-link active">Friends</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-3">
                                 <a href="./accounts.php" class="nav-link">Account</a>
                             </li>
+                            <li class="nav-item mx-3 ">
+                                <a href="../index.php" class="btn btn-outline-warning">Log Out</a>
+                            </li>
+                            <li class="nav-item mx-3 text-danger">
+
+                                <?php
+                                echo $_SESSION["emailId"];
+                                ?>
+
+                            </li>
                         </ul>
-                    </div>
-                    <div class="container">
-                        <li class="nav-item">
-                            <a href="../index.php" class="btn btn-outline-warning">Log Out</a>
-                        </li>
                     </div>
                 </div>
             </div>
@@ -49,16 +54,77 @@ session_start();
     </div>
     <!-- navbar ends here -->
 
-    <!-- friends starts here -->
-    <section class="p-3 text-warning">
-        <div class="container text-center">
-            <label for="userName" class="lead">
-                <a href="./addFriends.php" class="btn btn-lg btn-outline-dark btn-block">Add Friends</a>
-                Hello friends <?php echo $_SESSION["userName"]; ?>
 
+    <!-- display board starts here -->
+    <section class="bg-dark text-light p-lg-3 p-5 text-center">
+        <div class="container">
+            <div class="d-sm-flex">
+                <div class="">
+                    <p class="h1"><span class="text-warning">Entry of your friends to create finencial transection is done here.</span>
+                    <p class="lead my-4">
 
-            </label>
+                    </p>
+                    <br>
+                    <a href="./addFriends.php" class="btn btn-lg btn-outline-warning btn-block">Add Friends</a>
+                </div>
+                <img class="img-fluid w-25 d-none d-sm-block" src="../images/profileShowcase.png" alt="">
+            </div>
         </div>
+    </section>
+    <!-- display board ends here -->
+
+
+    <!-- friends starts here -->
+    <section class="p-3 text-warning text-center">
+        <div class="row p-3 text-center">
+            <div class="col-sm-8">
+            <div class="container">
+                <div class="d-md-flex row justify-content-between align-items-center text-center mb-3">
+                    <div class="border-right col">
+                        <span class="text-dark h2 mb-3 mb-md-0"> Name </span>
+                    </div>
+
+                    <div class="col">
+                        <span class="text-dark h2 mb-3 mb-md-0">   Contact  </span>
+                    </div>
+
+                    <div class="col">
+                        <span class="text-dark h2 mb-3 mb-md-0"> Address </span>
+                    </div>
+                </div>
+            </div>
+                <?php
+                $emailId = $_SESSION['emailId'];
+                include_once('../includes/dbConn.php');
+                $sql = "SELECT * FROM friends WHERE emailId = '" . $emailId . "';";
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo ' <div class="container">
+                <div class="d-md-flex row justify-content-between align-items-center text-center border-top p-3 mb-3">
+                    <div class="border-right col">
+                        <span class="text-dark h4 mb-3 mb-md-0">' . $row["name"] . '</span>
+                    </div>
+
+                    <div class="col">
+                        <span class="text-dark h4 mb-3 mb-md-0">'.$row["contact"].'</span>
+                    </div>
+
+                    <div class="col">
+                        <span class="text-dark h4 mb-3 mb-md-0">' . $row["address"] . '</span>
+                    </div>
+                </div>
+            </div>';
+                    }
+                }
+                mysqli_close($conn);
+                ?>
+
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+
     </section>
     <!-- friends ends here -->
 

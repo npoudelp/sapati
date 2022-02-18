@@ -25,21 +25,26 @@
                 <div class="d-lg-flex">
                     <div class="container">
                         <ul class="navbar-nav lead">
-                            <li class="nav-item">
+                            <li class="nav-item mx-3">
                                 <a href="./profile.php" class="nav-link">Profile</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="./friends.php" class="nav-link ">Friends</a>
+                            <li class="nav-item mx-3">
+                                <a href="./friends.php" class="nav-link active">Friends</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="./accounts.php" class="nav-link ">Account</a>
+                            <li class="nav-item mx-3">
+                                <a href="./accounts.php" class="nav-link">Account</a>
+                            </li>
+                            <li class="nav-item mx-3 ">
+                                <a href="../index.php" class="btn btn-outline-warning">Log Out</a>
+                            </li>
+                            <li class="nav-item mx-3 text-danger">
+
+                                <?php
+                                echo $_SESSION["emailId"];
+                                ?>
+
                             </li>
                         </ul>
-                    </div>
-                    <div class="container">
-                        <li class="nav-item">
-                            <a href="./login.php" class="btn btn-outline-warning">Log Out</a>
-                        </li>
                     </div>
                 </div>
             </div>
@@ -60,6 +65,8 @@
                     <input type="text" name="name" id="inputName" class="form-control mb-3" placeholder="friends name" required autofocus>
                     <label for="inputAddress" class="sr-only">Address</label>
                     <input type="text" id="inputAddress" name="address" class="form-control mb-3" placeholder="address" required>
+                    <label for="inputAddress" class="sr-only">Phone</label>
+                    <input type="text" id="inputAddress" name="contact" class="form-control mb-3" placeholder="phone" required>
                     <button class="btn btn-lg btn-outline-warning btn-block" name="add" type="submit">Add</button>
 
                 </form>
