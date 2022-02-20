@@ -16,13 +16,16 @@ if (isset($_POST['submit'])) {
             if ($row["emailId"] == $emailId && $passwordH == 1) {
                 //echo $row["password"]."<br>".$passwordH;
                 header('location: ../pages/profile.php');
+                session_start();
+                $_SESSION["emailId"] = $row["emailId"];
+                $_SESSION["userName"] = $row["userName"];
             }
             else{
                 header('location: ../pages/login.php?password_not_matched');
             }
         }
     } else {
-        header('location: ../pages/login.php?email_not_matched');
+        header('location: ../pages/login.php?emailx_not_matched');
     }
 
     mysqli_close($conn);
