@@ -1,4 +1,8 @@
+<?php
+session_start();
+?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,21 +27,23 @@
                 <div class="d-lg-flex">
                     <div class="container">
                         <ul class="navbar-nav lead">
-                            <li class="nav-item">
-                                <a href="../index.php" class="nav-link">Home</a>
+                            <li class="nav-item mx-3">
+                                <a href="./profile.php" class="nav-link active">Profile</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="./friends.php" class="nav-link disabled">Friends</a>
+                            <li class="nav-item mx-3">
+                                <a href="./accounts.php" class="nav-link">Account</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="./accounts.php" class="nav-link disabled">Account</a>
+                            <li class="nav-item mx-3 ">
+                                <a href="../index.php" class="btn btn-outline-warning">Log Out</a>
+                            </li>
+                            <li class="nav-item mx-3 text-danger">
+
+                                <?php
+                                echo $_SESSION["emailId"];
+                                ?>
+
                             </li>
                         </ul>
-                    </div>
-                    <div class="container">
-                        <li class="nav-item">
-                            <a href="./register.php" class="btn btn-outline-warning">Sign Up</a>
-                        </li>
                     </div>
                 </div>
             </div>
@@ -45,8 +51,29 @@
     </div>
     <!-- navbar ends here -->
 
-    
-    
+
+    <!-- display board starts here -->
+    <section class="bg-dark text-light p-lg-3 p-5 text-center">
+        <div class="container">
+            <div class="d-sm-flex">
+                <div class="d-lg-flex align-items-center">
+                    <p class="h1"><span class="text-warning">Welcome Home Mr.</span> <span class="text-danger"><?php
+                                                                                                                echo $_SESSION["userName"];
+                                                                                                                ?></span></p><br>
+                    <p class="lead my-4">
+                        Track all your finance with your own personalized profile.<br>
+                        Thank You for choosing <span class="text-warning">sApati</span>
+                    </p>
+                </div>
+                <img class="img-fluid w-50 d-none d-sm-block" src="../images/profileShowcase.png" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- display board ends here -->
+
+
+ 
+
 
     <!-- misc section -->
     <section class="p-1 bg-warning">
@@ -66,7 +93,7 @@
 
     <!-- footer starts here -->
     <?php
-    include_once('../includes/footer.php');                     
+    include_once('../includes/footer.php');
     ?>
 </body>
 
