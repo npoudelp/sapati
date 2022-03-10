@@ -55,13 +55,13 @@
 
         <section class="p-5">
             <div class="container">
-                <form method="post" action="../includes/addTransection.php">
+                <form method="post" action="../include/addTransection.php">
                     <div class="input-group mb-3">
                         <select class="form-select mb-4" id="0" name="friend" aria-label="Select Friends">
                             <option selected>Select Friend</option>
                             <?php
                             $emailId = $_SESSION['emailId'];
-                            include_once('../includes/dbConn.php');
+                            include_once('../include/dbConn.php');
                             $sql = "SELECT * FROM friends WHERE emailId = '" . $emailId . "';";
                             $result = mysqli_query($conn, $sql);
                             if (mysqli_num_rows($result) > 0) {
@@ -175,7 +175,7 @@
 
         <!-- footer starts here -->
         <?php
-        include_once('../includes/footer.php');
+        include_once('../include/footer.php');
         ?>
     </div>
 </body>

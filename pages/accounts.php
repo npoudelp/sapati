@@ -97,7 +97,7 @@ session_start();
 
     <!-- footer starts here -->
     <?php
-    include_once('../includes/footer.php');
+    include_once('../include/footer.php');
     ?>
 </body>
 

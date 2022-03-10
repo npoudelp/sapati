@@ -95,7 +95,7 @@ session_start();
             </div>
                 <?php
                 $emailId = $_SESSION['emailId'];
-                include_once('../includes/dbConn.php');
+                include_once('../include/dbConn.php');
                 $sql = "SELECT * FROM friends WHERE emailId = '" . $emailId . "';";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
@@ -146,7 +146,7 @@ session_start();
 
     <!-- footer starts here -->
     <?php
-    include_once('../includes/footer.php');
+    include_once('../include/footer.php');
     ?>
 </body>
 

@@ -56,7 +56,7 @@
     <section class="p-3 text-center">
         <div class="container border border-warning">
             <div class="text-center container p-3 lead">
-                <form class="form-signin" method="post" action="../includes/createFriend.php">
+                <form class="form-signin" method="post" action="../include/createFriend.php">
                     <h1 class="border">
                         <span class="h1 text-warning rounded mb-3 fw-bold logo">sApati</span>
                     </h1>
@@ -95,7 +95,7 @@
 
     <!-- footer starts here -->
     <?php
-    include_once('../includes/footer.php');
+    include_once('../include/footer.php');
     ?>
 </body>
 

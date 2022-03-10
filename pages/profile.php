@@ -57,9 +57,9 @@ session_start();
         <div class="container">
             <div class="d-sm-flex">
                 <div class="d-lg-flex align-items-center">
-                    <p class="h1"><span class="text-warning">Welcome Home Mr.</span> <span class="text-danger"><?php
-                                                                                                                echo $_SESSION["userName"];
-                                                                                                                ?></span></p><br>
+                    <p class="h1"><span class="text-warning">Welcome </span> <span class="text-danger"><?php
+                                                                                                        echo $_SESSION["userName"];
+                                                                                                        ?></span></p><br>
                     <p class="lead my-4">
                         Track all your finance with your own personalized profile.<br>
                         Thank You for choosing <span class="text-warning">sApati</span>
@@ -72,7 +72,7 @@ session_start();
     <!-- display board ends here -->
 
 
- 
+
 
 
     <!-- misc section -->
@@ -93,7 +93,7 @@ session_start();
 
     <!-- footer starts here -->
     <?php
-    include_once('../includes/footer.php');
+    include_once('../include/footer.php');
     ?>
 </body>
 
