@@ -27,10 +27,10 @@
                                 <a href="../index.php" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./friends.php" class="nav-link disabled">Friends</a>
+                                <a href="./friends.php" class="nav-link disabled">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./accounts.php" class="nav-link disabled">Account</a>
+                                <a href="./accounts.php" class="nav-link disabled">Add Account</a>
                             </li>
                         </ul>
                     </div>
@@ -55,12 +55,12 @@
                     </h1>
                     <br>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control mb-3" name="emailId" placeholder="@email address" required autofocus>
+                    <input type="email" id="inputEmail" class="form-control mb-3" name="emailId" placeholder="@email address" required autofocus><br>
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" minlength="4" required>
+                    <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" minlength="4" required><br>
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" value="remember-me"> Remember me
+                            <input type="checkbox" name="checkbox" value="set"> Remember me
                         </label>
                     </div>
                     <button class="btn btn-lg btn-outline-warning btn-block" type="submit" name="submit">Sign in</button><br>

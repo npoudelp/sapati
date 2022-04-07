@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/bootstrap.min.js"></script>
-
+    <script src="../js/jQuery.js"></script>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                                 <a href="../index.php" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./friends.php" class="nav-link disabled">Friends</a>
+                                <a href="./friends.php" class="nav-link disabled">Profile</a>
                             </li>
                             <li class="nav-item">
                                 <a href="./accounts.php" class="nav-link disabled">Account</a>
@@ -57,13 +57,15 @@
                     </h1>
                     <br>
                     <label for="inputEmail" class="sr-only">User Name</label>
-                    <input type="text" name="userName" id="inputEmail" class="form-control mb-3" placeholder="user name" required autofocus>
+                    <input type="text" name="userName" id="userName" class="form-control mb-3" placeholder="user name" required autofocus><br>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" name="emailId" id="inputEmail" class="form-control mb-3" placeholder="@email address" required>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" name="password" class="form-control mb-3" placeholder="password" minlength="4" required>
-                    <label for="inputEmail" class="sr-only">Confirm Password</label>
-                    <input type="password" name="passwordR" id="inputEmail" class="form-control mb-3" placeholder="confirm password" required>
+                    <input type="email" name="emailId" onkeyup="checkEmail(this.value)" id="inputEmail" class="form-control mb-3" placeholder="@email address" required>
+                    <span id="displayE" class=""></span><br>
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" name="password" class="form-control mb-3" placeholder="password" minlength="4" required><br>
+                    <label for="passwordR" class="sr-only">Confirm Password</label>
+                    <input type="password" name="passwordR" id="passwordR" onkeyup="checkPassword(this.value)" class="form-control mb-3" placeholder="confirm password" required>
+                    <span id="displayP"></span><br>
                     <button class="btn btn-lg btn-outline-warning btn-block" name="submit" type="submit">Sign Up</button>
 
                 </form>
@@ -113,6 +115,40 @@
     <?php
     include_once('../include/footer.php');
     ?>
+    <script>
+        checkEmail = (email) => {
+            if (email.length < 1) {
+                $("#displayE").css("color", " red")
+                $("#displayE").text("Cannot be empty!");
+            } else {
+                $("#displayE").text("");
+                $.ajax({
+                    url: '../include/emailAvailablity.php?q=' + email,
+                    type: 'get',
+                    success: (respond) => {
+                        if (respond == 0) {
+                            $("#displayE").css("color", " red")
+                            $("#displayE").text('Email address not available');
+                        } else {
+                            $("#displayE").css("color", "navy")
+                            $("#displayE").text('Email address available');
+                        }
+                    }
+                });
+            }
+        }
+
+        checkPassword = (passwordR) => {
+            let $password = $("#password").val();
+            if ($password != passwordR) {
+                $("#displayP").css("color", "red");
+                $("#displayP").text("Your password does not match");
+            } else {
+                $("#displayP").text("");
+            }
+
+        }
+    </script>
 </body>
 
 </html>

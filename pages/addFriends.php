@@ -35,7 +35,7 @@
                                 <a href="./accounts.php" class="nav-link">Account</a>
                             </li>
                             <li class="nav-item mx-3 ">
-                                <a href="../index.php" class="btn btn-outline-warning">Log Out</a>
+                                <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
                             </li>
                             <li class="nav-item mx-3 text-danger">
 

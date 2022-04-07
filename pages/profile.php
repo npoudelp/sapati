@@ -1,5 +1,8 @@
 <?php
 session_start();
+if ($_SESSION['logged'] != 'true') {
+    header('location:../pages/login.php');
+}
 ?>
 <html lang="en">
 
@@ -31,10 +34,13 @@ session_start();
                                 <a href="./profile.php" class="nav-link active">Profile</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a href="./accounts.php" class="nav-link">Account</a>
+                                <a href="./friends.php" class="nav-link">Credits</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a href="./addAccounts.php" class="nav-link">Add Account</a>
                             </li>
                             <li class="nav-item mx-3 ">
-                                <a href="../index.php" class="btn btn-outline-warning">Log Out</a>
+                                <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
                             </li>
                             <li class="nav-item mx-3 text-danger">
 
@@ -55,24 +61,50 @@ session_start();
     <!-- display board starts here -->
     <section class="bg-dark text-light p-lg-3 p-5 text-center">
         <div class="container">
-            <div class="d-sm-flex">
-                <div class="d-lg-flex align-items-center">
-                    <p class="h1"><span class="text-warning">Welcome </span> <span class="text-danger"><?php
-                                                                                                        echo $_SESSION["userName"];
-                                                                                                        ?></span></p><br>
-                    <p class="lead my-4">
-                        Track all your finance with your own personalized profile.<br>
-                        Thank You for choosing <span class="text-warning">sApati</span>
-                    </p>
-                </div>
-                <img class="img-fluid w-50 d-none d-sm-block" src="../images/profileShowcase.png" alt="">
-            </div>
+            <p class="h1"><span class="text-warning">Welcome </span> <span class="text-danger"><?php
+                                                                                                echo $_SESSION["userName"];
+                                                                                                ?></span></p><br>
         </div>
     </section>
     <!-- display board ends here -->
 
 
+    <!-- List credits -->
 
+    <section id="packages">
+        <div class="album py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card mb-4 shadow rounded">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">Title</h5>
+                                    </div>
+                                    <div class="col-6 d-flex">
+                                        <i onclick="" class="bi bi-check2 btn mx-3 btn-outline-dark"></i>
+                                        <i onclick="" class="bi mx-3 bi-x-lg btn btn-outline-danger"></i>
+                                    </div>
+                                </div>
+                                <h6 class="card-subtitle mb-2 text-muted border-bottom">Phone Number</h6>
+                                <p class="card-text">Text</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="#" onclick="" class="btn btn btn-outline-danger">Add</a>
+                                        <a href="#" onclick="" class="btn btn btn-outline-warning">Pay</a>
+                                    </div>
+                                    <small class="text-muted">Mute</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  -->
 
 
     <!-- misc section -->

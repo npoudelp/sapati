@@ -37,7 +37,7 @@ session_start();
                     </div>
                     <div class="container">
                         <li class="nav-item">
-                            <a href="../index.php" class="btn btn-outline-warning">Log Out</a>
+                            <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
                         </li>
                     </div>
                 </div>

@@ -31,10 +31,10 @@ session_start();
                                 <a href="./index.php" class="nav-link active">Home</a>
                             </li>
                             <li class="nav-item disabled">
-                                <a href="./pages/friends.php" class="nav-link disabled">Friends</a>
+                                <a href="./pages/friends.php" class="nav-link disabled">Profile</a>
                             </li>
                             <li class="nav-item disabled">
-                                <a href="./pages/accounts.php" class="nav-link disabled">Account</a>
+                                <a href="./pages/accounts.php" class="nav-link disabled">Add Account</a>
                             </li>
                         </ul>
                     </div>
