@@ -34,7 +34,7 @@ if ($_SESSION['logged'] != 'true') {
                                 <a href="./profile.php" class="nav-link active">Profile</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a href="./friends.php" class="nav-link">Credits</a>
+                                <a href="./addCredits.php" class="nav-link">Add Credits</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a href="./addAccounts.php" class="nav-link">Add Account</a>
@@ -84,17 +84,19 @@ if ($_SESSION['logged'] != 'true') {
                                     </div>
                                     <div class="col-6 d-flex">
                                         <i onclick="" class="bi bi-check2 btn mx-3 btn-outline-dark"></i>
-                                        <i onclick="" class="bi mx-3 bi-x-lg btn btn-outline-danger"></i>
+                                        <i onclick="" class="bi bi-x btn btn-outline-danger"></i>
                                     </div>
                                 </div>
                                 <h6 class="card-subtitle mb-2 text-muted border-bottom">Phone Number</h6>
                                 <p class="card-text">Text</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
+                                <div class="d-flex justify-content-between row align-items-center">
+                                    <div class="btn-group col-6">
                                         <a href="#" onclick="" class="btn btn btn-outline-danger">Add</a>
-                                        <a href="#" onclick="" class="btn btn btn-outline-warning">Pay</a>
+                                        <a href="#" onclick="" class="btn btn btn-outline-warning">Paid</a>
                                     </div>
-                                    <small class="text-muted">Mute</small>
+                                    <div class="col-6">
+                                        <small class="text-muted">Date_of_credit</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>

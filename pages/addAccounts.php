@@ -35,7 +35,7 @@ if ($_SESSION['logged'] != 'true') {
                                     <a href="./profile.php" class="nav-link">Profile</a>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a href="./friends.php" class="nav-link">Credits</a>
+                                    <a href="./addCredits.php" class="nav-link">Add Credits</a>
                                 </li>
                                 <li class="nav-item mx-3">
                                     <a href="./accounts.php" class=" nav-link active">Add Account</a>
