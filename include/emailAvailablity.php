@@ -2,7 +2,7 @@
 if(isset($_REQUEST['q'])){
     $email = $_REQUEST['q'];
     include_once('./dbConn.php');
-    $sql = "SELECT emailId FROM users WHERE email='{$email}';";
+    $sql = "SELECT email FROM users WHERE email='{$email}';";
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) > 0){
         echo "0";

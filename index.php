@@ -31,10 +31,10 @@ session_start();
                                 <a href="./index.php" class="nav-link active">Home</a>
                             </li>
                             <li class="nav-item disabled">
-                                <a href="./pages/friends.php" class="nav-link disabled">Profile</a>
+                                <a href="#" class="nav-link disabled"></a>
                             </li>
                             <li class="nav-item disabled">
-                                <a href="./pages/accounts.php" class="nav-link disabled">Add Account</a>
+                                <a href="#" class="nav-link disabled"></a>
                             </li>
                         </ul>
                     </div>
@@ -56,7 +56,7 @@ session_start();
                 <div>
                     <h1><span class="text-warning">Be your own</span> <span class="text-danger">Accountant</span></h1>
                     <p class="lead my-4">
-                        Why not manage your every finances with the digital button of your own?<br>
+                        Why not manage your credits transaction with the digital button of your own?<br>
                         Be smart choose <span class="text-warning">sApati</span>
                     </p>
                     <a href="./pages/register.php" class="btn btn-outline-warning">Join Us</a>

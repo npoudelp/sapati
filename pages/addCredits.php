@@ -22,7 +22,7 @@ if ($_SESSION['logged'] != 'true') {
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
-            <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+            <a href="./profile.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
@@ -72,7 +72,7 @@ if ($_SESSION['logged'] != 'true') {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "
-                        <option value='" . $row['aid'] . "'>{$row['name']}</options>
+                        <option value='" . $row['aid'] . "'>{$row['name']}, {$row['address']}</options>
                         ";
                         }
                     }
@@ -80,7 +80,9 @@ if ($_SESSION['logged'] != 'true') {
                     ?>
                 </select><br>
                 <label for="balance" class="sr-only">Amount</label>
-                <input type="number" id="balance" class="form-control mb-3" name="balance" placeholder="Amount credited"><br>
+                <input type="number" id="balance" class="form-control mb-3" required name="balance" placeholder="Amount credited"><br>
+                <label for="date" class="sr-only">Date</label>
+                <input type="date" id="date" class="form-control mb-3" name="date" required placeholder="Date"><br>
                 <label for="comments" class="sr-only">Comments</label>
                 <textarea type="text" id="comments" class="form-control mb-3" name="comments" placeholder="Description"></textarea><br>
                 <div class="d-flex justify-content-center">

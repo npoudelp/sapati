@@ -23,7 +23,7 @@ if ($_SESSION['logged'] != 'true') {
         <!-- navbar starts here -->
         <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
             <div class="container">
-                <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+                <a href="./profile.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                     <i class="bi bi-grid-3x3-gap"></i>
                 </button>
@@ -38,7 +38,7 @@ if ($_SESSION['logged'] != 'true') {
                                     <a href="./addCredits.php" class="nav-link">Add Credits</a>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a href="./accounts.php" class=" nav-link active">Add Account</a>
+                                    <a href="./addAccounts.php" class=" nav-link active">Add Account</a>
                                 </li>
                                 <li class="nav-item mx-3 ">
                                     <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
@@ -65,11 +65,11 @@ if ($_SESSION['logged'] != 'true') {
             <div class="container">
                 <form method="post" action="../include/addAccount.php">
                     <label for="name" class="sr-only">Name</label>
-                    <input type="text" id="name" class="form-control mb-3" name="name" placeholder="Name of account holder" required autofocus><br>
+                    <input required type="text" id="name" class="form-control mb-3" name="name" placeholder="Name of account holder" required autofocus><br>
                     <label for="name" class="sr-only">Address</label>
-                    <input type="text" id="address" class="form-control mb-3" name="address" placeholder="Address of account holder"><br>
+                    <input required type="text" id="address" class="form-control mb-3" name="address" placeholder="Address of account holder"><br>
                     <label for="name" class="sr-only">Contact</label>
-                    <input type="text" id="contact" class="form-control mb-3" name="contact" placeholder="Contact of account holder"><br>
+                    <input required type="text" id="contact" class="form-control mb-3" name="contact" placeholder="Contact of account holder"><br>
 
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-outline-warning btn-block mb-4" name="submit">Add Account</button>

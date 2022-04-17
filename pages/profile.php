@@ -3,6 +3,7 @@ session_start();
 if ($_SESSION['logged'] != 'true') {
     header('location:../pages/login.php');
 }
+
 ?>
 <html lang="en">
 
@@ -15,6 +16,7 @@ if ($_SESSION['logged'] != 'true') {
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jQuery.js"></script>
 
 </head>
 
@@ -74,33 +76,49 @@ if ($_SESSION['logged'] != 'true') {
     <section id="packages">
         <div class="album py-3">
             <div class="container">
+                <label name="display" class="lead"></label>
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card mb-4 shadow rounded">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <h5 class="card-title">Title</h5>
+
+                    <?php
+                    include_once('../include/dbConn.php');
+
+                    $sql = "SELECT A.name,A.address, A.contact, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
+                    $result = mysqli_query($conn, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo  '
+                            <div class="col-lg-4 col-md-6">
+                            <div class="card mb-4 shadow rounded">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h5 class="card-title">' . $row['name'] . '</h5>
+                                        </div>
+                                        <div class="col-6 d-flex">
+                                            <span onclick="details(' . $row['aid'] . ',' . $row['bid'] . ')" class="bi bi-plus-lg btn mx-3 btn-sm btn-outline-warning">Total</span>
+                                            <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-danger "></i>
+                                        </div>
                                     </div>
-                                    <div class="col-6 d-flex">
-                                        <i onclick="" class="bi bi-check2 btn mx-3 btn-outline-dark"></i>
-                                        <i onclick="" class="bi bi-x btn btn-outline-danger"></i>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle mb-2 text-muted border-bottom">Phone Number</h6>
-                                <p class="card-text">Text</p>
-                                <div class="d-flex justify-content-between row align-items-center">
-                                    <div class="btn-group col-6">
-                                        <a href="#" onclick="" class="btn btn btn-outline-danger">Add</a>
-                                        <a href="#" onclick="" class="btn btn btn-outline-warning">Paid</a>
-                                    </div>
-                                    <div class="col-6">
-                                        <small class="text-muted">Date_of_credit</small>
+                                    <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', '.$row['address'].'</h6>
+                                    <p class="card-text">' . $row['balance'] . '</p>
+                                    <p class="card-text text-muted">' . $row['comments'] . '</p>
+                                    <div class="d-flex justify-content-between row align-items-center">
+                                        <div class="btn-group col-6">
+                                            <span onclick="deduct(' . $row['balance'] . ',' . $row['bid'] . ')" class="btn btn btn-outline-danger">Deduct</span>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-muted">' . $row['bDate'] . '</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>';
+                        }
+                    } else {
+                        echo "No Credits";
+                    }
+
+                    ?>
                 </div>
             </div>
         </div>
@@ -129,6 +147,47 @@ if ($_SESSION['logged'] != 'true') {
     <?php
     include_once('../include/footer.php');
     ?>
+
+
+    <script type="text/javascript">
+        details = (aid, bid) => {
+            $.ajax({
+                type: 'get',
+                url: '../include/details.php?q=' + aid + '&r=' + bid,
+                success: (data) => {
+                    alert(data);
+                }
+
+
+            })
+        }
+
+        deduct = (balance, bid) => {
+            let amount = prompt("Amount client paid", balance);
+            if (amount > balance) {
+                alert('Cannot pay more than the credited amount!');
+            
+            } else {
+                let newAmount = balance - amount;
+                $.ajax({
+                    type: 'get',
+                    url: '../include/deduct.php?q=' + newAmount + '&r=' + bid,
+                    success: (data) => {
+                        $("#display").text(data);
+                    }
+
+
+                })
+            }
+        }
+
+        remove = (bid) => {
+            $warn = "Do you want to delete the transaction?";
+            if (confirm($warn) == true) {
+                window.location.href = "../include/deleteCredit.php?q=" + bid;
+            }
+        }
+    </script>
 </body>
 
 </html>
