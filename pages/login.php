@@ -27,10 +27,10 @@
                                 <a href="../index.php" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="./friends.php" class="nav-link disabled">Profile</a>
+                                <a href="#" class="nav-link disabled"></a>
                             </li>
                             <li class="nav-item">
-                                <a href="./accounts.php" class="nav-link disabled">Add Account</a>
+                                <a href="#" class="nav-link disabled"></a>
                             </li>
                         </ul>
                     </div>
