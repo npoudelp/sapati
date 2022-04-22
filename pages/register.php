@@ -115,6 +115,8 @@
     <?php
     include_once('../include/footer.php');
     ?>
+
+    
     <script>
         checkEmail = (email) => {
             if (email.length < 1) {
