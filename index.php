@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <html lang="en">
@@ -8,9 +8,10 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sApati</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/jQuery.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 
 </head>
@@ -56,7 +57,7 @@ session_start();
                 <div>
                     <h1><span class="text-warning">Be your own</span> <span class="text-danger">Accountant</span></h1>
                     <p class="lead my-4">
-                        Why not manage your credits transaction with the digital button of your own?<br>
+                        Why not manage your credit transaction with the digital button of your own?<br>
                         Be smart choose <span class="text-warning">sApati</span>
                     </p>
                     <a href="./pages/register.php" class="btn btn-outline-warning">Join Us</a>
@@ -76,12 +77,13 @@ session_start();
                 </div>
 
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="@email address">
+                    <input type="email" class="form-control" id="email" placeholder="@email address">
                     <div class="input-group-append">
-                        <button class="btn btn-dark" type="button">Send</button>
+                        <button class="btn btn-dark" onclick="send()" type="button">Send</button>
                     </div>
                 </div>
             </div>
+            <span id="display" class="lead text-danger"></span>
         </div>
     </section>
     <!-- mail section ends here -->
@@ -94,13 +96,12 @@ session_start();
                     <div class="card bg-dark text-light h-100 justify-content-center">
                         <div class="card bg-dark">
                             <div class="card-body text-center">
-                                <i class="bi bi-person-fill display-1"></i><i class="bi bi-heart-fill h1 text-danger"></i><i class="bi bi-person display-1"></i>
+                                <i class="bi bi-pc-display-horizontal display-1"></i>
                                 <div class="card-title mb-3 h4 text-warning">
-                                    Come Closer
+                                    Be Digital
                                 </div>
                                 <div class="card-text lead">
-                                    Feeling lost in large friends group of social media?
-                                    Come one step closer to the friends with whom you share your memories.
+                                    Degitalize your transaction recording system with sapati.
                                 </div>
                             </div>
                         </div>
@@ -115,7 +116,7 @@ session_start();
                                     Track Your Money
                                 </div>
                                 <div class="card-text lead">
-                                    Trace the flow of money from your wallet to the borrower without even remembering the transection.
+                                    Trace the flow of money from your wallet to the borrower without even remembering the transaction.
                                 </div>
                             </div>
                         </div>
@@ -131,7 +132,7 @@ session_start();
                                 </div>
                                 <div class="card-text lead">
                                     Make the best life decission while sApati keeps the track of your
-                                    every important transection.
+                                    every important transaction.
                                 </div>
                             </div>
                         </div>
@@ -179,9 +180,36 @@ session_start();
     <!-- misc ends -->
 
     <!-- footer starts here -->
-    <?php
-    include_once('./includes/footer.php');                     
-    ?>
+    <footer class="p-1 bg-dark text-white text-center position-relative">
+        <div class="container">
+            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong class="text-warning"> sApati </strong></p>
+            <a href="#navlink" class="position-absolute end-0 bottom-0 p-1 my-1 h1 text-warning">
+                <i class="bi bi-arrow-up-circle"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        send = () => {
+            let email = $("input").val();
+            if (email.includes('@') && (email.includes('.com') || email.includes('.org') || email.includes('com.np') || email.includes('in') || email.includes('edu.np'))) {
+                $.ajax({
+                    type: 'POST',
+                    url: './include/connectedEmails.php?q=' + email ,
+                    success: (data) => {
+                        $("#display").text(data);
+                    }
+                })
+            } else {
+                alert("Unsupported format of email");
+            }
+            setTimeout(() => {
+                $("#display").text("");
+            }, 5000);
+
+        }
+
+    </script>
 
 </body>
 
