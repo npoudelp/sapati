@@ -66,10 +66,12 @@ if ($_SESSION['logged'] != 'true') {
                 <select name="aid" class="form-control mb-3" id="name">
                     <?php
                     session_start();
+                    $data = '1';
                     include_once('../include/dbConn.php');
                     $sql = "SELECT accounts.name, accounts.aid, accounts.address FROM accounts, users WHERE users.uid=accounts.uid AND users.uid = '{$_SESSION['uid']}'";
                     $result = mysqli_query($conn, $sql);
                     if (mysqli_num_rows($result) > 0) {
+                        $data = '0';
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "
                         <option value='" . $row['aid'] . "'>{$row['name']}, {$row['address']}</options>
@@ -78,7 +80,13 @@ if ($_SESSION['logged'] != 'true') {
                     }
 
                     ?>
-                </select><br>
+                </select>
+                <?php
+                if ($data == '1') {
+                    echo '<label for="balance" class="text-danger sr-only">No user account created : <a href="./addAccounts.php" class="text-decoration-none">Add Account</a></label><br>';
+                }
+                ?>
+                <br>
                 <label for="balance" class="sr-only">Amount</label>
                 <input type="number" id="balance" class="form-control mb-3" required name="balance" placeholder="Amount credited"><br>
                 <label for="date" class="sr-only">Date</label>
