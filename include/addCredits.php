@@ -22,9 +22,8 @@ if (isset($_POST['submit'])) {
         header('location: ../pages/addCredits.php?credit_created_sucessfully');
     } else {
         header('location: ../pages/addCredits.php?error_adding_credit');
-        
-        mysqli_close($conn);
     }
+    mysqli_close($conn);
 } else {
     header('location: ../pages/addFriends.php');
 }
