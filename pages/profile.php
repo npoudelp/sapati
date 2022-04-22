@@ -22,7 +22,7 @@ if ($_SESSION['logged'] != 'true') {
 
 <body>
     <!-- navbar starts here -->
-    <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
+    <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3 justify-content-between">
         <div class="container">
             <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
@@ -49,8 +49,8 @@ if ($_SESSION['logged'] != 'true') {
                                 <?php
                                 echo $_SESSION["emailId"];
                                 ?>
-
                             </li>
+
                         </ul>
                     </div>
                 </div>
@@ -58,8 +58,17 @@ if ($_SESSION['logged'] != 'true') {
         </div>
     </div>
     <!-- navbar ends here -->
-
-
+    <!-- Search starts here -->
+    <nav class="navbar sticky-top navbar-warning bg-warning">
+        <div class="container">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">Button</button>
+                </div>
+            </div>
+        </div>
+    </nav>
     <!-- display board starts here -->
     <section class="bg-dark text-light p-lg-3 p-5 text-center">
         <div class="container">
@@ -76,7 +85,6 @@ if ($_SESSION['logged'] != 'true') {
     <section id="packages">
         <div class="album py-3">
             <div class="container">
-                <label name="display" class="lead"></label>
                 <div class="row">
 
                     <?php
@@ -99,7 +107,7 @@ if ($_SESSION['logged'] != 'true') {
                                             <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-danger "></i>
                                         </div>
                                     </div>
-                                    <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', '.$row['address'].'</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
                                     <p class="card-text">' . $row['balance'] . '</p>
                                     <p class="card-text text-muted">' . $row['comments'] . '</p>
                                     <div class="d-flex justify-content-between row align-items-center">
@@ -166,19 +174,18 @@ if ($_SESSION['logged'] != 'true') {
             let amount = prompt("Amount client paid", balance);
             if (amount > balance) {
                 alert('Cannot pay more than the credited amount!');
-            
+
             } else {
                 let newAmount = balance - amount;
                 $.ajax({
                     type: 'get',
                     url: '../include/deduct.php?q=' + newAmount + '&r=' + bid,
-                    success: (data) => {
-                        $("#display").text(data);
+                    success: () => {
+                        location.reload();
                     }
-
-
                 })
             }
+
         }
 
         remove = (bid) => {
