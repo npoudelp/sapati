@@ -58,17 +58,23 @@ if ($_SESSION['logged'] != 'true') {
         </div>
     </div>
     <!-- navbar ends here -->
+
+
     <!-- Search starts here -->
     <nav class="navbar sticky-top navbar-warning bg-warning">
         <div class="container">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Button</button>
+            <form method="POST" action="#">
+                <div class="input-group">
+                    <input type="text" name="client" class="form-control" placeholder="Search transaction">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-dark" name="search" type="submit">Search</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </nav>
+
+
     <!-- display board starts here -->
     <section class="bg-dark text-light p-lg-3 p-5 text-center">
         <div class="container">
@@ -90,11 +96,13 @@ if ($_SESSION['logged'] != 'true') {
                     <?php
                     include_once('../include/dbConn.php');
 
-                    $sql = "SELECT A.name,A.address, A.contact, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
-                    $result = mysqli_query($conn, $sql);
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo  '
+                    if (isset($_POST['search'])) {
+                        $client = $_POST['client'];
+                        $sql = "SELECT A.name,A.address, A.contact, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']} AND A.name LIKE '%{$client}%';";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo  '
                             <div class="col-lg-4 col-md-6">
                             <div class="card mb-4 shadow rounded">
                                 <div class="card-body">
@@ -121,9 +129,46 @@ if ($_SESSION['logged'] != 'true') {
                                 </div>
                             </div>
                         </div>';
+                            }
+                        } else {
+                            echo "No Credits";
                         }
                     } else {
-                        echo "No Credits";
+                        $sql = "SELECT A.name,A.address, A.contact, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card mb-4 shadow rounded">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">' . $row['name'] . '</h5>
+                                    </div>
+                                    <div class="col-6 d-flex">
+                                        <span onclick="details(' . $row['aid'] . ',' . $row['bid'] . ')" class="bi bi-plus-lg btn mx-3 btn-sm btn-outline-warning">Total</span>
+                                        <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-danger "></i>
+                                    </div>
+                                </div>
+                                <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
+                                <p class="card-text">' . $row['balance'] . '</p>
+                                <p class="card-text text-muted">' . $row['comments'] . '</p>
+                                <div class="d-flex justify-content-between row align-items-center">
+                                    <div class="btn-group col-6">
+                                        <span onclick="deduct(' . $row['balance'] . ',' . $row['bid'] . ')" class="btn btn btn-outline-danger">Deduct</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">' . $row['bDate'] . '</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
+                            }
+                        } else {
+                            echo "No Credits";
+                        }
                     }
 
                     ?>
