@@ -24,7 +24,10 @@ if ($_SESSION['logged'] != 'true') {
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3 justify-content-between">
         <div class="container">
-            <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+            <a href="./profile.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchBar">
+                <i class="bi bi-search"></i>
+            </button>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
@@ -46,9 +49,9 @@ if ($_SESSION['logged'] != 'true') {
                             </li>
                             <li class="nav-item mx-3 text-danger">
 
-                                <?php
-                                echo $_SESSION["emailId"];
-                                ?>
+                                <a href="./myAccount.php" class="text-light text-decoration-none">
+                                    <i class="bi bi-person-circle h3" onMouseOver="this.style.color='#0d6efd'" onMouseOut="this.style.color='#FFF'"></i>
+                                </a>
                             </li>
 
                         </ul>
@@ -63,27 +66,29 @@ if ($_SESSION['logged'] != 'true') {
     <!-- Search starts here -->
     <nav class="navbar sticky-top navbar-warning bg-warning">
         <div class="container">
-            <form method="POST" action="#">
-                <div class="input-group">
-                    <input type="text" name="client" class="form-control" placeholder="Search transaction">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-dark" name="search" type="submit">Search</button>
+            <div class="row w-100">
+                <div class="col-md-6 collapse navbar-collapse justify-content-center d-lg-flex" id="searchBar">
+                    <form method="POST" action="#">
+                        <div class="input-group">
+                            <input type="text" name="client" class="form-control" placeholder="Search transaction">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-dark" name="search" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="row text-center">
+                        <div class="col">
+                            <p class="text-center text-danger h6" id="sum"></p>
+                        </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </nav>
+    <div class="container-flex p-1 bg-dark"></div>
 
-
-    <!-- display board starts here -->
-    <section class="bg-dark text-light p-lg-3 p-5 text-center">
-        <div class="container">
-            <p class="h1"><span class="text-warning">Welcome </span> <span class="text-danger"><?php
-                                                                                                echo $_SESSION["userName"];
-                                                                                                ?></span></p><br>
-        </div>
-    </section>
-    <!-- display board ends here -->
 
 
     <!-- List credits -->
@@ -208,10 +213,9 @@ if ($_SESSION['logged'] != 'true') {
                 type: 'get',
                 url: '../include/details.php?q=' + aid + '&r=' + bid,
                 success: (data) => {
-                    alert(data);
+                    $("#sum").text(data);
+
                 }
-
-
             })
         }
 
