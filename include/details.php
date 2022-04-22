@@ -7,7 +7,7 @@ if (isset($_REQUEST['q'])) {
 
     include_once("./dbConn.php");
 
-    $sql = "SELECT sum(balance) AS sum FROM accounts AS A, balance AS B WHERE A.aid=B.aid AND B.aid={$aid};";
+    $sql = "SELECT sum(balance) AS sum, A.name FROM accounts AS A, balance AS B WHERE A.aid=B.aid AND B.aid={$aid};";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     $total = $row['sum'];
@@ -17,7 +17,7 @@ if (isset($_REQUEST['q'])) {
     // $row1 = mysqli_fetch_assoc($result1);
     // $comments = $row1['comments'];
 
-    echo 'Total: ' . $total;
+    echo 'Total for '. $row['name'] .': ' . $total;
 } else {
     header("location:../pages/profile.php");
 }
