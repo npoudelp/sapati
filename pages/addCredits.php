@@ -44,10 +44,9 @@ if ($_SESSION['logged'] != 'true') {
                             </li>
                             <li class="nav-item mx-3 text-danger">
 
-                                <?php
-                                echo $_SESSION["emailId"];
-                                ?>
-
+                                <a href="./myAccount.php" class="text-light text-decoration-none">
+                                    <i class="bi bi-person-circle h3" onMouseOver="this.style.color='#0d6efd'" onMouseOut="this.style.color='#FFF'"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
