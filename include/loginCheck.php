@@ -23,8 +23,8 @@ if (isset($_POST['submit'])) {
                 $_SESSION["emailId"] = $row["email"];
                 $_SESSION["userName"] = $row["name"];
                 if ($checkbox == 'set') {
-                    setcookie("emailId", $_SESSION["emailId"]);
-                    setcookie("password", $row["password"]);
+                    setcookie("email", $row["email"], time() + (86400 * 30), "/");
+                    setcookie("password", $password, time() + (86400 * 30), "/");
                 }
                 if ($row['type'] == 'admin') {
                     header('location: ../pages/admin.php');
