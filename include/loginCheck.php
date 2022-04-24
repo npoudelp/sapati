@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
             }
         }
     } else {
-        header('location: ../pages/login.php?emailx_not_matched');
+        header('location: ../pages/login.php?email_not_matched');
     }
 
     mysqli_close($conn);

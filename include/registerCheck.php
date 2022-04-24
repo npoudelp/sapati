@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
         } else {
             $insert = mysqli_query($conn, $sql);
             if ($insert) {
-                header('location: ../pages/login.php?user_created_:)');
+                header('location: ../pages/register.php?user_created');
             }else{
                 echo 'Error creating user';
             }
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 
         mysqli_close($conn);
     } else {
-        header('location: ../pages/register.php?error_message=password_not_matched');
+        header('location: ../pages/register.php?password_not_matched');
         exit();
     }
 } else {
