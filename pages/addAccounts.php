@@ -63,6 +63,14 @@ if ($_SESSION['logged'] != 'true') {
         <section class="p-5">
             <div class="container">
                 <form method="post" action="../include/addAccount.php">
+                    <?php
+                    if (isset($_REQUEST['account_created_sucessfully'])) {
+                        echo '<span class="lead text-success">Account created sucessfully</span>';
+                    }
+                    if (isset($_REQUEST['error_adding_account'])) {
+                        echo '<span class="lead text-danger">Failed to create account</span>';
+                    }
+                    ?><br>
                     <label for="name" class="sr-only">Name</label>
                     <input required type="text" id="name" class="form-control mb-3" name="name" placeholder="Name of account holder" required autofocus><br>
                     <label for="name" class="sr-only">Address</label>

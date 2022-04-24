@@ -48,13 +48,21 @@
     <!-- navbar ends here -->
 
     <!-- login form starts here -->
-    <section class="p-3 text-center">
-        <div class="container border border-warning">
+    <section class="p-5 text-center">
+        <div class="container shadow-lg">
             <div class="text-center container p-3 lead">
                 <form class="form-signin" method="post" action="../include/registerCheck.php">
-                    <h1 class="border">
-                        <span class="h1 text-warning rounded mb-3 fw-bold logo">sApati</span>
-                    </h1>
+                    <?php
+                    if (isset($_REQUEST['email_already_exists'])) {
+                        echo '<span class="lead text-danger">Email already exists</span>';
+                    }
+                    if (isset($_REQUEST['user_created'])) {
+                        echo '<span class="lead text-success">User created sucessfully</span>';
+                    }
+                    if (isset($_REQUEST['password_not_matched'])) {
+                        echo '<span class="lead text-success">Password does not match</span>';
+                    }
+                    ?>
                     <br>
                     <label for="inputEmail" class="sr-only">User Name</label>
                     <input type="text" name="userName" id="userName" class="form-control mb-3" placeholder="user name" required autofocus><br>
@@ -65,7 +73,11 @@
                     <input type="password" id="password" name="password" class="form-control mb-3" placeholder="password" minlength="4" required><br>
                     <label for="passwordR" class="sr-only">Confirm Password</label>
                     <input type="password" name="passwordR" id="passwordR" onkeyup="checkPassword(this.value)" class="form-control mb-3" placeholder="confirm password" required>
-                    <span id="displayP"></span><br>
+                    <span id="displayP"></span>
+                    <?php
+
+                    ?>
+                    <br>
                     <button class="btn btn-lg btn-outline-warning btn-block" name="submit" type="submit">Sign Up</button>
 
                 </form>
@@ -116,7 +128,7 @@
     include_once('../include/footer.php');
     ?>
 
-    
+
     <script>
         checkEmail = (email) => {
             if (email.length < 1) {

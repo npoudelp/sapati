@@ -61,6 +61,14 @@ if ($_SESSION['logged'] != 'true') {
     <section class="p-5">
         <div class="container">
             <form method="post" action="../include/addCredits.php">
+                <?php
+                if (isset($_REQUEST['credit_created_sucessfully'])) {
+                    echo '<span class="lead text-success">Credit added</span>';
+                }
+                if (isset($_REQUEST['error_adding_credit'])) {
+                    echo '<span class="lead text-danger">Failed to add credit</span>';
+                }
+                ?><br>
                 <label for="name" class="sr-only">Name</label>
                 <select name="aid" class="form-control mb-3" id="name">
                     <?php

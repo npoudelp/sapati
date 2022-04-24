@@ -46,13 +46,18 @@
     <!-- navbar ends here -->
 
     <!-- login form starts here -->
-    <section class="p-3 text-center">
-        <div class="container border border-warning">
+    <section class="p-5 text-center">
+        <div class="container shadow-lg">
             <div class="text-center container p-3 lead">
                 <form class="form-signin" method="post" action="../include/loginCheck.php">
-                    <h1 class="border">
-                        <span class="h1 text-warning rounded mb-3 fw-bold logo">sApati</span>
-                    </h1>
+                        <?php
+                            if(isset($_REQUEST['password_not_matched'])){
+                                echo '<span class="lead text-danger">Password not matched</span>';
+                            }
+                            if(isset($_REQUEST['email_not_matched'])){
+                                echo '<span class="lead text-danger">Email not matched</span>';
+                            }
+                        ?>
                     <br>
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" class="form-control mb-3" name="emailId" placeholder="@email address" required autofocus><br>
@@ -71,6 +76,7 @@
             </div>
         </div>
     </section>
+    
     <!-- login form ends here -->
 
 

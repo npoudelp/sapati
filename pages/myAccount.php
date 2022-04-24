@@ -25,6 +25,8 @@ include_once("../include/dbConn.php");
     <script src="../js/jQuery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
+
 </head>
 
 <body>
@@ -74,7 +76,27 @@ include_once("../include/dbConn.php");
                     <canvas id="myChart" style="width:100%;"></canvas>
                 </div>
                 <!-- password reset -->
-                <div class="col-md-6">
+                <div class="col-md-6 text-center">
+                    <?php
+                    if (isset($_REQUEST['success'])) {
+                        echo '<br><span class="lead text-success">Password changed sucessfully</span>';
+                    }
+                    if (isset($_REQUEST['failed_to_update_password'])) {
+                        echo '<br><span class="lead text-danger">Failed to change password</span>';
+                    }
+                    if (isset($_REQUEST['old_passowrd_not_matched'])) {
+                        echo '<br><span class="lead text-danger">Old passowrd does not match</span>';
+                    }
+                    if (isset($_REQUEST['password_not_match'])) {
+                        echo '<br><span class="lead text-danger">Confirm passowrd does not match</span>';
+                    }
+                    if (isset($_REQUEST['success_delete'])) {
+                        echo '<br><span class="lead text-danger">Client account removed sucessfully</span>';
+                    }
+                    if (isset($_REQUEST['failed_delete'])) {
+                        echo '<br><span class="lead text-danger">Failed to delete client account</span>';
+                    }
+                    ?>
                     <div class="row text-center border-bottom border-dark">
                         <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#changePassword">
                             <br>
@@ -108,7 +130,7 @@ include_once("../include/dbConn.php");
                             <span class="lead">Delete Client Account</span> <i class="bi bi-chevron-double-down"></i> <br>
                         </span><br>
                         <div class="container collapse navbar-collapse justify-content-center" id="closeAccount">
-                            <form action="../include/deleteAccount.php" method="POST">
+                            <form action="../include/deleteClientAccount.php" method="POST">
                                 <select name="aid" class="form-control mb-3" id="aid">
                                     <?php
                                     session_start();
