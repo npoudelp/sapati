@@ -23,8 +23,39 @@ if (isset($_POST['submit'])) {
                 $_SESSION["emailId"] = $row["email"];
                 $_SESSION["userName"] = $row["name"];
                 if ($checkbox == 'set') {
-                    setcookie("email", $row["email"], time() + (86400 * 30), "/");
-                    setcookie("password", $password, time() + (86400 * 30), "/");
+                    
+                    $ciphering = "AES-128-CTR";
+
+                    $iv_length = openssl_cipher_iv_length($ciphering);
+                    $options = 0;
+
+                    $encryption_iv = '1234567891011121';
+
+                    $encryption_key = "w3@r3ALLN3p@l1@nd5@patIII###!!123##l!!!@l";
+
+                    // Use openssl_encrypt() function to encrypt the data
+                    $encEmail = openssl_encrypt(
+                        $row["email"],
+                        $ciphering,
+                        $encryption_key,
+                        $options,
+                        $encryption_iv
+                    );
+                    $encPasswd = openssl_encrypt(
+                        $password,
+                        $ciphering,
+                        $encryption_key,
+                        $options,
+                        $encryption_iv
+                    );
+
+
+
+
+
+
+                    setcookie("email", $encEmail, time() + (86400 * 30), "/");
+                    setcookie("password", $encPasswd, time() + (86400 * 30), "/");
                 }
                 if ($row['type'] == 'admin') {
                     header('location: ../pages/admin.php');

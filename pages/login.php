@@ -1,26 +1,16 @@
 <?php
 $email;
 $passwd;
+
 if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     $email = $_COOKIE["email"];
     $passwd = $_COOKIE["password"];
 }
+include_once("../include/headerPages.php");
 
 ?>
 
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sApati</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/bootstrap.min.js"></script>
-
-</head>
 
 <body>
     <!-- navbar starts here -->
@@ -76,7 +66,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
                     <input type="password" id="inputPassword" class="form-control mb-3" <?php echo "value='" . $passwd . "' "; ?> name="password" placeholder="Password" minlength="4" required><br>
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" name="checkbox" value="set"> Remember me
+                            <input type="checkbox" name="checkbox" value="set"> <small class="text-muted">Remember me for 30 days</small>
                         </label>
                     </div>
                     <button class="btn btn-lg btn-outline-warning btn-block" type="submit" name="submit">Sign in</button><br>
