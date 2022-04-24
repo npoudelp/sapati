@@ -1,5 +1,29 @@
 <?php
 session_start();
+
+$userCount;
+$transactionCount;
+$costomerCount;
+
+include_once('./include/dbConn.php');
+$sql = "SELECT COUNT(uid) AS userCount FROM users;";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$userCount = $row['userCount'];
+
+$sql1 = "SELECT COUNT(bid) AS transactionCount FROM balance;";
+$result1 = mysqli_query($conn, $sql1);
+$row1 = mysqli_fetch_assoc($result1);
+$transactionCount = $row1['transactionCount'];
+
+$sql2 = "SELECT COUNT(aid) AS costomerCount FROM accounts;";
+$result2 = mysqli_query($conn, $sql2);
+$row2 = mysqli_fetch_assoc($result2);
+$costomerCount = $row2['costomerCount'];
+
+
+
+
 ?>
 <html lang="en">
 
@@ -88,63 +112,30 @@ session_start();
     </section>
     <!-- mail section ends here -->
 
-    <!-- promotion starts here -->
-    <section class="p-3">
+    <!-- Achievement starts here -->
+    <section class="bg-light lead p-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg p-3 shadow" style="height:400px;">
-                    <div class="card bg-dark text-light h-100 justify-content-center">
-                        <div class="card bg-dark">
-                            <div class="card-body text-center">
-                                <i class="bi bi-pc-display-horizontal display-1"></i>
-                                <div class="card-title mb-3 h4 text-warning">
-                                    Be Digital
-                                </div>
-                                <div class="card-text lead">
-                                    Degitalize your transaction recording system with sapati.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row text-center">
+                <div class="col-md-4 bg-light">
+                    <span class="text-dark h1" id="userCount"></span><br>
+                    <span class="text-dark h4"><i class="bi bi-people"></i> Users</span>
                 </div>
-                <div class="col-md p-3 shadow" style="height:400px;">
-                    <div class="card bg-dark text-light h-100 justify-content-center">
-                        <div class="card bg-dark">
-                            <div class="card-body text-center">
-                                <i class="bi bi-card-checklist display-1"></i>
-                                <div class="card-title mb-3 h4 text-warning">
-                                    Track Your Money
-                                </div>
-                                <div class="card-text lead">
-                                    Trace the flow of money from your wallet to the borrower without even remembering the transaction.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="col-md-4 bg-light">
+                    <span class="text-dark h1" id="tCount"></span><br>
+                    <span class="text-dark h4"><i class="bi bi-receipt"></i> Transactions</span>
                 </div>
-                <div class="col-md p-3 shadow" style="height:400px;">
-                    <div class="card bg-dark text-light h-100 justify-content-center">
-                        <div class="card bg-dark">
-                            <div class="card-body text-center">
-                                <i class="bi bi-person-square display-1"></i>
-                                <div class="card-title mb-3 h4 text-warning">
-                                    Be Independent
-                                </div>
-                                <div class="card-text lead">
-                                    Make the best life decission while sApati keeps the track of your
-                                    every important transaction.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="col-md-4 bg-light">
+                    <span class="text-dark h1" id="tCostomer"></span><br>
+                    <span class="text-dark h4"><i class="bi bi-shop-window"></i> Costomers</span>
                 </div>
             </div>
         </div>
     </section>
-    <!-- promotion ends here -->
 
     <!-- mapping starts here -->
-    <section class="bg-dark p-3">
+    <section class="bg-dark py-3">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md text-light">
@@ -195,7 +186,7 @@ session_start();
             if (email.includes('@') && (email.includes('.com') || email.includes('.org') || email.includes('com.np') || email.includes('in') || email.includes('edu.np'))) {
                 $.ajax({
                     type: 'POST',
-                    url: './include/connectedEmails.php?q=' + email ,
+                    url: './include/connectedEmails.php?q=' + email,
                     success: (data) => {
                         $("#display").text(data);
                     }
@@ -209,6 +200,70 @@ session_start();
 
         }
 
+        $(document).ready(() => {
+
+            $('#userCount').each(function() {
+                var $this = $(this),
+                    countTo = $this.attr('data-count');
+
+                $({
+                    countNum: $this.text()
+                }).animate({
+                    countNum: <?php echo $userCount; ?>
+                }, {
+                    duration: 1000,
+                    easing: 'linear',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(this.countNum);
+                    }
+                });
+            });
+
+            $('#tCount').each(function() {
+                var $this = $(this),
+                    countTo = $this.attr('data-count');
+
+                $({
+                    countNum: $this.text()
+                }).animate({
+                    countNum: <?php echo $transactionCount; ?>
+                }, {
+                    duration: 1000,
+                    easing: 'linear',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(this.countNum);
+                    }
+                });
+            });
+
+
+            $('#tCostomer').each(function() {
+                var $this = $(this),
+                    countTo = $this.attr('data-count');
+
+                $({
+                    countNum: $this.text()
+                }).animate({
+                    countNum: <?php echo $costomerCount; ?>
+                }, {
+                    duration: 1000,
+                    easing: 'linear',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(this.countNum);
+                    }
+                });
+            });
+
+        })
     </script>
 
 </body>
