@@ -77,8 +77,8 @@ $costomerCount = $row2['costomerCount'];
     <!-- display board starts here -->
     <section class="bg-dark text-light p-lg-3 p-5 text-center">
         <div class="container">
-            <div class="d-sm-flex">
-                <div>
+            <div class="row">
+                <div class="col-md-6">
                     <h1><span class="text-warning">Be your own</span> <span class="text-danger">Accountant</span></h1>
                     <p class="lead my-4">
                         Why not manage your credit transaction with the digital button of your own?<br>
@@ -86,31 +86,13 @@ $costomerCount = $row2['costomerCount'];
                     </p>
                     <a href="./pages/register.php" class="btn btn-outline-warning">Join Us</a>
                 </div>
-                <img class="img-fluid w-50 d-none d-sm-block" src="./images/showcase.png" alt="">
+                <div class="col-md-6 align-content-center align-text-center">
+                    <img class="img-fluid w-50 d-none d-md-block" src="./images/showcase.png" alt="">
+                </div>
             </div>
         </div>
     </section>
     <!-- display board ends here -->
-
-    <!-- mail section starts here -->
-    <section class="bg-warning p-5">
-        <div class="container">
-            <div class="d-md-flex justify-content-between align-items-center">
-                <div>
-                    <span class="text-dark h3 mb-3 mb-md-0">Be helpful to our project, connect with us</span>
-                </div>
-
-                <div class="input-group">
-                    <input type="email" class="form-control" id="email" placeholder="@email address">
-                    <div class="input-group-append">
-                        <button class="btn btn-dark" onclick="send()" type="button">Send</button>
-                    </div>
-                </div>
-            </div>
-            <span id="display" class="lead text-danger"></span>
-        </div>
-    </section>
-    <!-- mail section ends here -->
 
     <!-- Achievement starts here -->
     <section class="bg-light lead p-5">
@@ -133,6 +115,28 @@ $costomerCount = $row2['costomerCount'];
             </div>
         </div>
     </section>
+
+
+    <!-- mail section starts here -->
+    <section class="bg-warning p-5">
+        <div class="container">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <div>
+                    <span class="text-dark h3 mb-3 mb-md-0">Be helpful to our project, connect with us</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" class="form-control" id="email" placeholder="@email address">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" onclick="send()" type="button">Send</button>
+                    </div>
+                </div>
+            </div>
+            <span id="display" class="lead text-danger"></span>
+        </div>
+    </section>
+    <!-- mail section ends here -->
+
 
     <!-- mapping starts here -->
     <section class="bg-dark py-3">
