@@ -9,3 +9,5 @@ As a begining phase project this site may not have every feature that a client w
 will be updated on further updates.
 
 project hosting site: http://udharo.nirojpoudel.com.np
+
+Database connection file location: /include/dbConn.php
