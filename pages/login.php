@@ -17,7 +17,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sApati</title>
+    <title>udharo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -29,7 +29,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
-            <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+            <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
@@ -120,7 +120,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
                         Contact Info
                     </h2>
                     <i class="bi bi-geo-alt h1 text-warning">&nbsp;&nbsp;</i><span class="lead">Biratnagar, Province 1, Nepal</span><br>
-                    <i class="bi bi-envelope h1 text-warning">&nbsp;&nbsp;</i><span class="lead">info@sapati.com</span><br>
+                    <i class="bi bi-envelope h1 text-warning">&nbsp;&nbsp;</i><span class="lead">info@udharo.com</span><br>
                     <i class="bi bi-telephone h1 text-warning">&nbsp;&nbsp;</i><span class="lead">+977-9800110011</span>
                 </div>
                 <div class="col-md text-light ">

@@ -1,4 +1,4 @@
-# sapati
+# udharo
 This is a university project being developed by BCA student of Tribhuvan University.
 
 This project aims to keep record of the transection that occurs in our daily life.

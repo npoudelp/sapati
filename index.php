@@ -32,7 +32,7 @@ $costomerCount = $row2['costomerCount'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sApati</title>
+    <title>udharo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -45,7 +45,7 @@ $costomerCount = $row2['costomerCount'];
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
-            <a href="./index.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+            <a href="./index.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
@@ -83,7 +83,7 @@ $costomerCount = $row2['costomerCount'];
                     <h1><span class="text-warning">Be your own</span> <span class="text-danger">Accountant</span></h1>
                     <p class="lead my-4">
                         Why not manage your credit transaction with the digital button of your own?<br>
-                        Be smart choose <span class="text-warning">sApati</span>
+                        Be smart choose <span class="text-warning">udharo</span>
                     </p>
                     <a href="./pages/register.php" class="btn btn-outline-warning">Join Us</a>
                 </div>
@@ -148,7 +148,7 @@ $costomerCount = $row2['costomerCount'];
                         Contact Info
                     </h2>
                     <i class="bi bi-geo-alt h1 text-warning">&nbsp;&nbsp;</i><span class="lead">Biratnagar, Province 1, Nepal</span><br>
-                    <i class="bi bi-envelope h1 text-warning">&nbsp;&nbsp;</i><span class="lead">info@sapati.com</span><br>
+                    <i class="bi bi-envelope h1 text-warning">&nbsp;&nbsp;</i><span class="lead">info@udharo.com</span><br>
                     <i class="bi bi-telephone h1 text-warning">&nbsp;&nbsp;</i><span class="lead">+977-9800110011</span>
                 </div>
                 <div class="col-md text-light ">
@@ -178,7 +178,7 @@ $costomerCount = $row2['costomerCount'];
     <!-- footer starts here -->
     <footer class="p-1 bg-dark text-white text-center position-relative">
         <div class="container">
-            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong class="text-warning"> sApati </strong></p>
+            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong class="text-warning"> udharo </strong></p>
             <a href="#navlink" class="position-absolute end-0 bottom-0 p-1 my-1 h1 text-warning">
                 <i class="bi bi-arrow-up-circle"></i>
             </a>

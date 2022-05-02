@@ -12,7 +12,7 @@ if ($_SESSION['logged'] != 'true') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sApati</title>
+    <title>udharo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -25,7 +25,7 @@ if ($_SESSION['logged'] != 'true') {
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3 justify-content-between">
         <div class="container">
-            <a href="./profile.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+            <a href="./profile.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchBar">
                 <i class="bi bi-search"></i>
             </button>

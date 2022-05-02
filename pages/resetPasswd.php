@@ -4,6 +4,8 @@ if (!$_SESSION['uotp'] || !$_SESSION['email']) {
     header('location:./login.php?illegal');
     session_destroy();
 }
+setcookie('email', null, -1, '/');
+setcookie('password', null, -1, '/');
 ?>
 
 <html lang="en">
@@ -14,7 +16,7 @@ if (!$_SESSION['uotp'] || !$_SESSION['email']) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sApati</title>
+    <title>udharo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -26,7 +28,7 @@ if (!$_SESSION['uotp'] || !$_SESSION['email']) {
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
-            <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo">sApati</span></a>
+            <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
