@@ -6,11 +6,24 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     $email = $_COOKIE["email"];
     $passwd = $_COOKIE["password"];
 }
-include_once("../include/headerPages.php");
 
 ?>
 
+<html lang="en">
 
+<head>
+    <link rel="shortcut icon" href="../images/icon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sApati</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/bootstrap.min.js"></script>
+
+</head>
 
 <body>
     <!-- navbar starts here -->
@@ -54,24 +67,41 @@ include_once("../include/headerPages.php");
                     <?php
                     if (isset($_REQUEST['password_not_matched'])) {
                         echo '<span class="lead text-danger">Password not matched</span>';
+                        $count++;
+                    }
+                    if (isset($_REQUEST['reset_ok'])) {
+                        echo '<span class="lead text-success">Password change sucessful</span>';
+                        $count++;
                     }
                     if (isset($_REQUEST['email_not_matched'])) {
                         echo '<span class="lead text-danger">Email not matched</span>';
+                        $count++;
+                    }
+                    if (isset($_REQUEST['illegal'])) {
+                        echo '<span class="lead text-danger">Invalid move</span>';
+                        $count++;
                     }
                     ?>
                     <br>
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" class="form-control mb-3" <?php echo "value='" . $email . "' "; ?> name="emailId" placeholder="@email address" required autofocus><br>
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control mb-3" <?php echo "value='" . $passwd . "' "; ?> name="password" placeholder="Password" minlength="4" required><br>
+                    <input type="password" id="inputPassword" class="form-control mb-3" <?php echo "value='" . $passwd . "' "; ?> name="password" placeholder="Password" minlength="4" required>
+                    <?php
+                    if ($count != 0) {
+                        echo '<a href="./forgotPassword.php" class="nav-link">
+                                <small class="text-primary">Forgot password?</small>
+                            </a>';
+                    }
+                    ?>
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" name="checkbox" value="set"> <small class="text-muted">Remember me for 30 days</small>
+                            <input type="checkbox" name="checkbox" value="set"> <small class="text-muted">Keep logged in for 30 days</small>
                         </label>
                     </div>
                     <button class="btn btn-lg btn-outline-warning btn-block" type="submit" name="submit">Sign in</button><br>
                     <a href="./register.php" class="nav-link">
-                        <sapn class="lead text-primary">Dont have an account?</sapn>
+                        <sapn class="small text-primary">Dont have an account?</sapn>
                     </a>
                 </form>
             </div>

@@ -8,10 +8,27 @@ if ($_SESSION['logged'] != 'true') {
 include_once("../include/dbConn.php");
 
 
-include_once("../include/headerPages.php");
+
 
 ?>
+<html lang="en">
 
+<head>
+    <link rel="shortcut icon" href="../images/icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sApati</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jQuery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+</head>
 
 <body>
     <!-- navbar starts here -->
@@ -56,9 +73,17 @@ include_once("../include/headerPages.php");
     <section class="bg-light">
         <div class="container-flex mx-3">
             <div class="row">
-                <div class="col-md-6">
+                <?php
+                if ($_SESSION['type'] != "admin") {
+                    echo '<div class="col-md-6">
                     <canvas id="myChart" style="width:100%;"></canvas>
-                </div>
+                    </div>';
+                } else {
+                    echo '<div class="col-md-6">
+                    
+                    </div>';
+                }
+                ?>
                 <!-- password reset -->
                 <div class="col-md-6 text-center">
                     <?php
