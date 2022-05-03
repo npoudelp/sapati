@@ -8,7 +8,7 @@ if (isset($_REQUEST['q'])) {
 
     include_once("./dbConn.php");
 
-    $sql = "SELECT sum(balance) AS sum, A.name FROM accounts AS A, balance AS B WHERE A.aid=B.aid AND B.aid={$aid} AND B.type='{$type}' AND B.status = 'show';";
+    $sql = "SELECT sum(balance) AS sum, A.name, B.type FROM accounts AS A, balance AS B WHERE A.aid=B.aid AND B.aid={$aid} AND B.type='{$type}' AND B.status='show';";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     $total = $row['sum'];
@@ -18,7 +18,12 @@ if (isset($_REQUEST['q'])) {
     // $row1 = mysqli_fetch_assoc($result1);
     // $comments = $row1['comments'];
 
-    echo 'Total for '. $row['name'] .': ' . $total;
+    if ($row['type'] == 'credit') {
+        echo $total . ' to receive from ' . $row['name'] ;
+    }
+    if ($row['type'] == 'debit') {
+        echo $total . ' to pay to ' . $row['name'] ;
+    }
 } else {
     header("location:../pages/profile.php");
 }

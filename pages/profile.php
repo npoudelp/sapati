@@ -71,9 +71,9 @@ if ($_SESSION['logged'] != 'true') {
                 <div class="col-md-6 collapse navbar-collapse justify-content-center d-lg-flex" id="searchBar">
                     <form method="POST" action="#">
                         <div class="input-group">
-                            <input type="text" name="client" class="form-control" placeholder="Search transaction">
+                            <input type="text" name="client" class="form-control-sm" placeholder="Search transaction">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-dark" name="search" type="submit">Search</button>
+                                <button class="btn-sm btn-outline-dark" name="search" type="submit">Search</button>
                             </div>
                         </div>
                     </form>
@@ -124,7 +124,7 @@ if ($_SESSION['logged'] != 'true') {
                                                         </div>
                                                     </div>
                                                     <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
-                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp;' . $row['type'] . 'ed</p>
+                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp; to Receive</p>
                                                     <p class="card-text text-muted">' . $row['comments'] . '</p>
                                                     <div class="d-flex justify-content-between row align-items-center">
                                                         <div class="btn-group col-6">
@@ -152,7 +152,7 @@ if ($_SESSION['logged'] != 'true') {
                                                         </div>
                                                     </div>
                                                     <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
-                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp;' . $row['type'] . 'ed</p>
+                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp; to Give</p>
                                                     <p class="card-text text-muted">' . $row['comments'] . '</p>
                                                     <div class="d-flex justify-content-between row align-items-center">
                                                         <div class="btn-group col-6">
@@ -193,7 +193,7 @@ if ($_SESSION['logged'] != 'true') {
                                                         </div>
                                                     </div>
                                                     <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
-                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp;' . $row['type'] . 'ed</p>
+                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp; to Receive</p>
                                                     <p class="card-text text-muted">' . $row['comments'] . '</p>
                                                     <div class="d-flex justify-content-between row align-items-center">
                                                         <div class="btn-group col-6">
@@ -221,7 +221,7 @@ if ($_SESSION['logged'] != 'true') {
                                                         </div>
                                                     </div>
                                                     <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
-                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp;' . $row['type'] . 'ed</p>
+                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp; to Give</p>
                                                     <p class="card-text text-muted">' . $row['comments'] . '</p>
                                                     <div class="d-flex justify-content-between row align-items-center">
                                                         <div class="btn-group col-6">

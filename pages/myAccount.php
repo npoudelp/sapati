@@ -4,7 +4,7 @@ if ($_SESSION['logged'] != 'true') {
     header('location:../pages/login.php');
 }
 
-
+$sql3;
 include_once("../include/dbConn.php");
 
 
@@ -24,15 +24,23 @@ include_once("../include/dbConn.php");
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jQuery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
 
 
+    <style>
+        @media print {
+                #toHide {
+                visibility: hidden;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
     <!-- navbar starts here -->
-    <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3 justify-content-between">
+    <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3 justify-content-between" id="toHide">
         <div class="container">
             <a href="./profile.php" class="navbar-brand"><img src="../images/logo.png" width="100%" height="100%" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
@@ -70,7 +78,7 @@ include_once("../include/dbConn.php");
 
 
     <!-- User details chart -->
-    <section class="bg-light">
+    <section class="bg-light" id="toHide">
         <div class="container-flex mx-3">
             <div class="row">
                 <?php
@@ -127,7 +135,7 @@ include_once("../include/dbConn.php");
                                     <label for="passwordR">Confirm New Password</label>
                                     <input type="password" name="passwordR" id="passwordR" onkeyup="checkPassword(this.value)" class="form-control mb-3" placeholder="Confirm New Password" required><br>
                                 </div>
-                                <span id="displayP"></span><br>
+                                <span id="displayP"></span>
                                 <button type="submit" name="submit" class="btn btn-outline-danger">Submit</button>
                             </form>
                         </div>
@@ -162,15 +170,67 @@ include_once("../include/dbConn.php");
                                 if ($data == '1') {
                                     echo '<label for="balance" class="text-danger sr-only">No user account created : <a href="./addAccounts.php" class="text-decoration-none">Add Account</a></label><br>';
                                 }
-                                mysqli_close($conn);
                                 ?>
 
                                 <button type="submit" name="submit" class="btn btn-outline-danger">Delete</button>
                             </form>
                         </div>
-                    </div>
+                    </div><br>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Logs for transaction -->
+    <section>
+        <div class="container">
+            <div class="row text-center border-bottom border-dark d-print-table">
+                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#showLogs">
+                    <span class="lead">Transaction Log</span> <i class="bi bi-chevron-double-down"></i> <br>
+                </span> <br>
+                <div class="container collapse navbar-collapse  justify-content-center" id="showLogs">
+                    <span class="btn btn-outline-secondary"><button class="btn btn-secondary" onclick="window.print()"><i class="bi bi-printer"></i></button></span>
+                    <span class="text-warning">This not actual log, but a test for log management system, and print function</span>
+                    <table class="table" class="print-container" width='100%'>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">SN</th>
+                                <th scope="col">Client Name</th>
+                                <th scope="col">Contact</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Comments</th>
+                            </tr>
+                        </thead>
+                        <?php
+                        $sn = 1;
+                        $sql3 = "SELECT * FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
+                        $result3 = mysqli_query($conn, $sql3);
+                        if (mysqli_num_rows($result3) > 0) {
+                            while ($row3 = mysqli_fetch_assoc($result3)) {
+                                echo ' 
+                                <tr>
+                                <td scope="row">' . $sn . '</td>
+                                <td scope="row">' . $row3['name'] . '</td>
+                                <td scope="row">' . $row3['contact'] . '</td>
+                                <td scope="row">' . $row3['address'] . '</td>
+                                <td scope="row">' . $row3['type'] . '</td>
+                                <td scope="row">' . $row3['balance'] . '</td>
+                                <td scope="row">' . $row3['bDate'] . '</td>
+                                <td scope="row">' . $row3['comments'] . '</td>
+                                </tr>';
+                                $sn++;
+                            }
+                        } else {
+                            echo "<span class='text-danger'>No transaction logs available</span>";
+                        }
+                        ?>
+
+                    </table><br>
+                </div>
+            </div><br>
         </div>
     </section>
 
@@ -194,39 +254,49 @@ include_once("../include/dbConn.php");
     </section>
     <!-- misc ends -->
 
+
+
     <!-- footer starts here -->
     <?php
     include_once('../include/footer.php');
     ?>
 
 
+    <?php
+    $sql4 = "SELECT sum(balance) AS credits FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']} AND B.type='credit' AND B.status='show';";
+    $result4 = mysqli_query($conn, $sql4);
+    $row4 = mysqli_fetch_assoc($result4);
+    $credits = $row4['credits'];
+
+    $sql5 = "SELECT sum(balance) AS debits FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']} AND B.type='debit' AND B.status='show';";
+    $result5 = mysqli_query($conn, $sql5);
+    $row5 = mysqli_fetch_assoc($result5);
+    $debits = $row5['debits'];
+    mysqli_close($conn);
+    ?>
+
+
     <script>
-        var xValues = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-        var yValues = [1200, 1289, 100, 90, 400, 1000, 1300, 15, 25, 6000, 20, 1500, 1200, 1200];
+        var xValues = ["To Receive", "To Give"];
+        var yValues = [<?php echo $credits; ?>, <?php echo $debits; ?>];
+        var barColors = [
+            "#ffc107",
+            "#343a40"
+        ];
 
         new Chart("myChart", {
-            type: "line",
+            type: "doughnut",
             data: {
                 labels: xValues,
                 datasets: [{
-                    fill: false,
-                    lineTension: 0,
-                    backgroundColor: "#000fff",
-                    borderColor: "#0d6efd",
+                    backgroundColor: barColors,
                     data: yValues
                 }]
             },
             options: {
-                legend: {
-                    display: false
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            min: 0,
-                            max: 12
-                        }
-                    }],
+                title: {
+                    display: true,
+                    text: "Ratio among Debit and Credit transaaction"
                 }
             }
         });
@@ -241,6 +311,19 @@ include_once("../include/dbConn.php");
                 $("#displayP").text("");
             }
 
+        }
+
+        function prinLogs() {
+            var divName = "logs";
+
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
         }
     </script>
 
