@@ -23,7 +23,7 @@ if ($_SESSION['logged'] != 'true') {
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
-            <a href="./profile.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
+            <a href="./profile.php" class="navbar-brand"><img src="../images/logo.png" width="100%" height="100%" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
@@ -69,26 +69,43 @@ if ($_SESSION['logged'] != 'true') {
                 if (isset($_REQUEST['error_adding_credit'])) {
                     echo '<span class="lead text-danger">Failed to add credit</span>';
                 }
+                if (isset($_REQUEST['empty_options'])) {
+                    echo '<span class="lead text-danger">Please fill the form properly</span>';
+                }
+
                 ?><br>
-                <label for="name" class="sr-only">Name</label>
-                <select name="aid" class="form-control mb-3" id="name">
-                    <?php
-                    session_start();
-                    $data = '1';
-                    include_once('../include/dbConn.php');
-                    $sql = "SELECT accounts.name, accounts.aid, accounts.address FROM accounts, users WHERE users.uid=accounts.uid AND users.uid = '{$_SESSION['uid']}'";
-                    $result = mysqli_query($conn, $sql);
-                    if (mysqli_num_rows($result) > 0) {
-                        $data = '0';
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="name" class="sr-only">Name</label>
+                        <select name="aid" class="form-control mb-3" id="name">
+                            <option value="0" selected>--Select Account--</option>
+                            <?php
+                            session_start();
+                            $data = '1';
+                            include_once('../include/dbConn.php');
+                            $sql = "SELECT accounts.name, accounts.aid, accounts.address FROM accounts, users WHERE users.uid=accounts.uid AND users.uid = '{$_SESSION['uid']}'";
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+                                $data = '0';
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "
                         <option value='" . $row['aid'] . "'>{$row['name']}, {$row['address']}</options>
                         ";
-                        }
-                    }
+                                }
+                            }
 
-                    ?>
-                </select>
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="balance" class="sr-only">Transaction Type</label>
+                        <select name="type" class="form-control mb-3" id="type">
+                            <option value="0" selected>--Select Type Of Transaction--</option>
+                            <option value="credit">To Receive</option>
+                            <option value="debit">To Give</option>
+                        </select>
+                    </div>
+                </div>
                 <?php
                 if ($data == '1') {
                     echo '<label for="balance" class="text-danger sr-only">No user account created : <a href="./addAccounts.php" class="text-decoration-none">Add Account</a></label><br>';
