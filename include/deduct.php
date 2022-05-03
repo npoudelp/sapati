@@ -7,7 +7,8 @@ if (isset($_REQUEST['q'])) {
     include_once("./dbConn.php");
 
     if($balance == 0){
-        $sql1 = "DELETE FROM balance WHERE bid={$bid};";
+        $sql1 = "UPDATE balance SET status = 'hide' WHERE bid = {$bid};";
+
         $result1 = mysqli_query($conn, $sql1);
         if($result1){
             header("location:../pages/profile.php");
