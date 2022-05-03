@@ -28,7 +28,7 @@ setcookie('password', null, -1, '/');
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
-            <a href="../index.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
+            <a href="../index.php" class="navbar-brand"><img src="../images/logo.png" width="100%" height="100%" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>

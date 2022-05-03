@@ -25,7 +25,7 @@ if ($_SESSION['logged'] != 'true') {
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3 justify-content-between">
         <div class="container">
-            <a href="./profile.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
+            <a href="./profile.php" class="navbar-brand"><img src="../images/logo.png" width="100%" height="100%" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#searchBar">
                 <i class="bi bi-search"></i>
             </button>
@@ -79,9 +79,9 @@ if ($_SESSION['logged'] != 'true') {
                     </form>
                 </div>
                 <div class="col-md-6 text-center">
-                    <div class="row text-center">
+                    <div class="row w-100 text-center">
                         <div class="col">
-                            <p class="text-center text-danger h6" id="sum"></p>
+                            <p class="text-center h6" id="sum"></p>
                         </div>
                     </div>
                 </div>
@@ -104,73 +104,138 @@ if ($_SESSION['logged'] != 'true') {
 
                     if (isset($_POST['search'])) {
                         $client = $_POST['client'];
-                        $sql = "SELECT A.name,A.address, A.contact, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']} AND A.name LIKE '%{$client}%';";
+                        $sql = "SELECT A.name,A.address, A.contact, B.type, B.status,  B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']} AND A.name LIKE '%{$client}%';";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                echo  '
-                            <div class="col-lg-4 col-md-6">
-                            <div class="card mb-4 shadow rounded">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h5 class="card-title">' . $row['name'] . '</h5>
-                                        </div>
-                                        <div class="col-6 d-flex">
-                                            <span onclick="details(' . $row['aid'] . ',' . $row['bid'] . ')" class="bi bi-plus-lg btn mx-3 btn-sm btn-outline-warning">Total</span>
-                                            <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-danger "></i>
-                                        </div>
-                                    </div>
-                                    <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
-                                    <p class="card-text">' . $row['balance'] . '</p>
-                                    <p class="card-text text-muted">' . $row['comments'] . '</p>
-                                    <div class="d-flex justify-content-between row align-items-center">
-                                        <div class="btn-group col-6">
-                                            <span onclick="deduct(' . $row['balance'] . ',' . $row['bid'] . ')" class="btn btn btn-outline-danger">Deduct</span>
-                                        </div>
-                                        <div class="col-6">
-                                            <small class="text-muted">' . $row['bDate'] . '</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>';
+                                if ($row['status'] == 'show') {
+                                    if ($row['type'] == 'credit') {
+                                        echo '
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="card mb-4 shadow rounded">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <h5 class="card-title">' . $row['name'] . '</h5>
+                                                        </div>
+                                                        <div class="col-6 d-flex">
+                                                            <span onclick="details(' . $row['aid'] . ',' . $row['bid'] . ',&#34' . $row['type'] . '&#34)" class="bi bi-plus-lg btn mx-3 btn-sm btn-outline-warning">Total</span>
+                                                            <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-danger "></i>
+                                                        </div>
+                                                    </div>
+                                                    <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
+                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp;' . $row['type'] . 'ed</p>
+                                                    <p class="card-text text-muted">' . $row['comments'] . '</p>
+                                                    <div class="d-flex justify-content-between row align-items-center">
+                                                        <div class="btn-group col-6">
+                                                            <span onclick="deduct(' . $row['balance'] . ',' . $row['bid'] . ')" class="btn btn btn-outline-danger">Deduct</span>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <small class="text-muted">' . $row['bDate'] . '</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                    } else {
+                                        echo '
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="card mb-4 shadow rounded">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <h5 class="card-title">' . $row['name'] . '</h5>
+                                                        </div>
+                                                        <div class="col-6 d-flex">
+                                                            <span onclick="details(' . $row['aid'] . ',' . $row['bid'] . ',&#34' . $row['type'] . '&#34)" class="bi bi-plus-lg btn mx-3 btn-sm btn-outline-dark">Total</span>
+                                                            <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-dark "></i>
+                                                        </div>
+                                                    </div>
+                                                    <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
+                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp;' . $row['type'] . 'ed</p>
+                                                    <p class="card-text text-muted">' . $row['comments'] . '</p>
+                                                    <div class="d-flex justify-content-between row align-items-center">
+                                                        <div class="btn-group col-6">
+                                                            <span onclick="deduct(' . $row['balance'] . ',' . $row['bid'] . ')" class="btn btn btn-outline-dark">Pay</span>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <small class="text-muted">' . $row['bDate'] . '</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                    }
+                                }
                             }
                         } else {
                             echo "No Credits";
                         }
                     } else {
-                        $sql = "SELECT A.name,A.address, A.contact, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
+                        $sql = "SELECT A.name,A.address, A.contact, B.status, B.type, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
                         $result = mysqli_query($conn, $sql);
+                        header('location: ../pages/addCredits.php?empty_options');
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                echo '
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card mb-4 shadow rounded">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <h5 class="card-title">' . $row['name'] . '</h5>
-                                    </div>
-                                    <div class="col-6 d-flex">
-                                        <span onclick="details(' . $row['aid'] . ',' . $row['bid'] . ')" class="bi bi-plus-lg btn mx-3 btn-sm btn-outline-warning">Total</span>
-                                        <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-danger "></i>
-                                    </div>
-                                </div>
-                                <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
-                                <p class="card-text">' . $row['balance'] . '</p>
-                                <p class="card-text text-muted">' . $row['comments'] . '</p>
-                                <div class="d-flex justify-content-between row align-items-center">
-                                    <div class="btn-group col-6">
-                                        <span onclick="deduct(' . $row['balance'] . ',' . $row['bid'] . ')" class="btn btn btn-outline-danger">Deduct</span>
-                                    </div>
-                                    <div class="col-6">
-                                        <small class="text-muted">' . $row['bDate'] . '</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>';
+                                if ($row['status'] == 'show') {
+                                    if ($row['type'] == 'credit') {
+                                        echo '
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="card mb-4 shadow rounded">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <h5 class="card-title">' . $row['name'] . '</h5>
+                                                        </div>
+                                                        <div class="col-6 d-flex">
+                                                            <span onclick="details(' . $row['aid'] . ',' . $row['bid'] . ',&#34' . $row['type'] . '&#34)" class="bi bi-plus-lg btn mx-3 btn-sm btn-outline-warning">Total</span>
+                                                            <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-danger "></i>
+                                                        </div>
+                                                    </div>
+                                                    <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
+                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp;' . $row['type'] . 'ed</p>
+                                                    <p class="card-text text-muted">' . $row['comments'] . '</p>
+                                                    <div class="d-flex justify-content-between row align-items-center">
+                                                        <div class="btn-group col-6">
+                                                            <span onclick="deduct(' . $row['balance'] . ',' . $row['bid'] . ')" class="btn btn btn-outline-danger">Deduct</span>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <small class="text-muted">' . $row['bDate'] . '</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                    } else {
+                                        echo '
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="card mb-4 shadow rounded">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <h5 class="card-title">' . $row['name'] . '</h5>
+                                                        </div>
+                                                        <div class="col-6 d-flex">
+                                                            <span onclick="details(' . $row['aid'] . ',' . $row['bid'] . ',&#34' . $row['type'] . '&#34)" class="bi bi-plus-lg btn mx-3 btn-sm btn-outline-dark">Total</span>
+                                                            <i onclick="remove(' . $row['bid'] . ')" class="bi bi-x btn btn-outline-dark "></i>
+                                                        </div>
+                                                    </div>
+                                                    <h6 class="card-subtitle mb-2 text-muted border-bottom">' . $row['contact'] . ', ' . $row['address'] . '</h6>
+                                                    <p class="card-text"> Rs:' . $row['balance'] . '/- &nbsp;' . $row['type'] . 'ed</p>
+                                                    <p class="card-text text-muted">' . $row['comments'] . '</p>
+                                                    <div class="d-flex justify-content-between row align-items-center">
+                                                        <div class="btn-group col-6">
+                                                            <span onclick="deduct(' . $row['balance'] . ',' . $row['bid'] . ')" class="btn btn btn-outline-dark">Pay</span>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <small class="text-muted">' . $row['bDate'] . '</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+                                    }
+                                }
                             }
                         } else {
                             echo "No Credits";
@@ -209,11 +274,12 @@ if ($_SESSION['logged'] != 'true') {
 
 
     <script type="text/javascript">
-        details = (aid, bid) => {
+        details = (aid, bid, type) => {
             $.ajax({
                 type: 'get',
-                url: '../include/details.php?q=' + aid + '&r=' + bid,
+                url: '../include/details.php?q=' + aid + '&r=' + bid + '&s=' + type,
                 success: (data) => {
+                    $("#sum").css('color', 'green');
                     $("#sum").text(data);
 
                 }
@@ -221,25 +287,33 @@ if ($_SESSION['logged'] != 'true') {
         }
 
         deduct = (balance, bid) => {
-            let amount = prompt("Amount client paid", balance);
-            if (amount > balance) {
-                alert('Cannot pay more than the credited amount!');
+            let value = prompt("Amount: ", balance);
+            let amount = parseInt(value);
+            if (Number.isInteger(amount)) {
+                if (amount > balance) {
+                    $("#sum").css('color', 'red');
+                    $("#sum").text('Cannot pay more than the credited amount!');
+                } else {
 
+                    let newAmount = balance - amount;
+                    $.ajax({
+                        type: 'get',
+                        url: '../include/deduct.php?q=' + newAmount + '&r=' + bid,
+                        success: () => {
+                            location.reload();
+                        }
+                    })
+
+                }
             } else {
-                let newAmount = balance - amount;
-                $.ajax({
-                    type: 'get',
-                    url: '../include/deduct.php?q=' + newAmount + '&r=' + bid,
-                    success: () => {
-                        location.reload();
-                    }
-                })
+                $("#sum").css('color', 'red');
+                $("#sum").text('Only ineger value supported');
             }
 
         }
 
         remove = (bid) => {
-            $warn = "Do you want to delete the transaction?";
+            $warn = "On deletion balance amount will be 0. Cannot be reverted. Want to proceed forward?";
             if (confirm($warn) == true) {
                 window.location.href = "../include/deleteCredit.php?q=" + bid;
             }

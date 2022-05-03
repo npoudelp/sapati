@@ -34,7 +34,7 @@ include_once("../include/dbConn.php");
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3 justify-content-between">
         <div class="container">
-            <a href="./profile.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
+            <a href="./profile.php" class="navbar-brand"><img src="../images/logo.png" width="100%" height="100%" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
@@ -43,7 +43,7 @@ include_once("../include/dbConn.php");
                     <div class="container">
                         <ul class="navbar-nav lead">
                             <li class="nav-item mx-3">
-                                <a href="./profile.php" class="nav-link active">Profile</a>
+                                <a href="./profile.php" class="nav-link">Profile</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a href="./addCredits.php" class="nav-link">Add Credits</a>
