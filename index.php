@@ -45,7 +45,7 @@ $costomerCount = $row2['costomerCount'];
     <!-- navbar starts here -->
     <div class="nav navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
-            <a href="./index.php" class="navbar-brand"><span class="text-warning h1 logo" style="font-family: anand;">pwf/f]</span></a>
+            <a href="./index.php" class="navbar-brand"><img src="./images/logo.png" width="100%" height="100%" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlink">
                 <i class="bi bi-grid-3x3-gap"></i>
             </button>
@@ -83,7 +83,7 @@ $costomerCount = $row2['costomerCount'];
                     <h1><span class="text-warning">Be your own</span> <span class="text-danger">Accountant</span></h1>
                     <p class="lead my-4">
                         Why not manage your credit transaction with the digital button of your own?<br>
-                        Be smart choose <span class="text-warning">udharo</span>
+                        Be smart choose<span class="text-warning h4 logo" style="font-family: anand;"> <img src="./images/logo.png" width="auto" height="30px" alt=""></span>
                     </p>
                     <a href="./pages/register.php" class="btn btn-outline-warning">Join Us</a>
                 </div>
@@ -170,7 +170,7 @@ $costomerCount = $row2['costomerCount'];
                 ?>
                 <?php $year = date("l");
                 echo $year;
-                ?>
+                ?><span class="text-warning h4" style="font-family: anand;">pwf/f]</span>
         </div>
     </section>
     <!-- misc ends -->
@@ -178,7 +178,7 @@ $costomerCount = $row2['costomerCount'];
     <!-- footer starts here -->
     <footer class="p-1 bg-dark text-white text-center position-relative">
         <div class="container">
-            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong class="text-warning"> udharo </strong></p>
+            <p class="lead">Copyright&copy; <?php echo Date("Y"); ?><strong> <span class="text-warning h3 logo"><img src=" ./images/logo.png" width="auto" height="25px" alt=""></span></p>
             <a href="#navlink" class="position-absolute end-0 bottom-0 p-1 my-1 h1 text-warning">
                 <i class="bi bi-arrow-up-circle"></i>
             </a>
