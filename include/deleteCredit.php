@@ -4,13 +4,13 @@ if (isset($_REQUEST['q'])) {
 
     include_once("./dbConn.php");
 
-    $sql = "DELETE FROM balance WHERE bid = '{$bid}';";
+    $sql = "UPDATE balance SET status = 'hide' WHERE bid = {$bid};";
 
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("location: ../pages/profile.php");
     } else {
-        echo "Error deleting ";
+        echo "Error deleting account";
     }
 } else {
     header("location:../pages/profile.php");

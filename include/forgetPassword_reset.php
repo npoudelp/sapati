@@ -11,7 +11,7 @@ if ($_SESSION['uotp'] && $_SESSION['email']) {
         } else {
             include_once("./dbConn.php");
             $passwordSet = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "UPDATE users SET password = '$passwordSet' WHERE email='$email';";
+            $sql = "UPDATE users SET password = '{$passwordSet}' WHERE email='{$email}';";
             $set = mysqli_query($conn, $sql);
             if ($set) {
                 header("location:../pages/login.php?reset_ok");
