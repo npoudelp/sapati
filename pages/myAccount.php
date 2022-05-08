@@ -30,7 +30,7 @@ include_once("../include/dbConn.php");
 
     <style>
         @media print {
-                #toHide {
+            #toHide {
                 visibility: hidden;
             }
         }
@@ -181,16 +181,16 @@ include_once("../include/dbConn.php");
         </div>
     </section>
 
-    <!-- Logs for transaction -->
+    <!-- history for transaction -->
     <section>
         <div class="container">
             <div class="row text-center border-bottom border-dark d-print-table">
-                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#showLogs">
-                    <span class="lead">Transaction Log</span> <i class="bi bi-chevron-double-down"></i> <br>
+                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#transactionLogs">
+                    <span class="lead">Transaction History</span> <i class="bi bi-chevron-double-down"></i> <br>
                 </span> <br>
-                <div class="container collapse navbar-collapse  justify-content-center" id="showLogs">
+                <div class="container collapse navbar-collapse  justify-content-center" id="transactionLogs">
                     <span class="btn btn-outline-secondary"><button class="btn btn-secondary" onclick="window.print()"><i class="bi bi-printer"></i></button></span>
-                    <span class="text-warning">This not actual log, but a test for log management system, and print function</span>
+                    <span class="text-warning"></span>
                     <table class="table" class="print-container" width='100%'>
                         <thead class="thead-dark">
                             <tr>
@@ -206,7 +206,7 @@ include_once("../include/dbConn.php");
                         </thead>
                         <?php
                         $sn = 1;
-                        $sql3 = "SELECT * FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
+                        $sql3 = "SELECT * FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']} ORDER BY bid DESC;";
                         $result3 = mysqli_query($conn, $sql3);
                         if (mysqli_num_rows($result3) > 0) {
                             while ($row3 = mysqli_fetch_assoc($result3)) {
@@ -221,6 +221,57 @@ include_once("../include/dbConn.php");
                                 <td scope="row">' . $row3['bDate'] . '</td>
                                 <td scope="row">' . $row3['comments'] . '</td>
                                 </tr>';
+                                if ($sn >= 20) {
+                                    break;
+                                }
+                                $sn++;
+                            }
+                        } else {
+                            echo "<span class='text-danger'>No transaction logs available</span>";
+                        }
+                        ?>
+
+                    </table><br>
+                </div>
+            </div><br>
+        </div>
+    </section>
+
+    <!-- User activity log -->
+    <section id="#toHide">
+        <div class="container">
+            <div class="row text-center border-bottom border-dark d-print-table">
+                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#userLogs">
+                    <span class="lead">Users Activity Logs</span> <i class="bi bi-chevron-double-down"></i> <br>
+                </span> <br>
+                <div class="container collapse navbar-collapse  justify-content-center" id="userLogs">
+                    <!-- <span class="btn btn-outline-secondary"><button class="btn btn-secondary" onclick="window.print()"><i class="bi bi-printer"></i></button></span> -->
+                    <span class="text-warning"></span>
+                    <table class="table" class="print-container" width='100%'>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">SN</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Details</th>
+                            </tr>
+                        </thead>
+                        <?php
+                        $sn = 1;
+                        $sql4 = "SELECT * FROM users AS U, logs AS L WHERE U.uid=L.uid AND U.uid={$_SESSION['uid']} ORDER BY lid DESC;";
+                        $result4 = mysqli_query($conn, $sql4);
+                        if (mysqli_num_rows($result4) > 0) {
+                            while ($row4 = mysqli_fetch_assoc($result4)) {
+                                echo ' 
+                                <tr>
+                                <td scope="row">' . $sn . '</td>
+                                <td scope="row">' . $row4['date'] . '</td>
+                                <td scope="row">' . $row4['time'] . '</td>
+                                <td scope="row">' . $row4['details'] . '</td>
+                                </tr>';
+                                if ($sn >= 50) {
+                                    break;
+                                }
                                 $sn++;
                             }
                         } else {

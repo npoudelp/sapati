@@ -169,7 +169,7 @@ if ($_SESSION['logged'] != 'true') {
                                 }
                             }
                         } else {
-                            echo "No Credits";
+                            echo "No transaction to display";
                         }
                     } else {
                         $sql = "SELECT A.name,A.address, A.contact, B.status, B.type, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
@@ -238,7 +238,7 @@ if ($_SESSION['logged'] != 'true') {
                                 }
                             }
                         } else {
-                            echo "No Credits";
+                            echo "No transaction to display";
                         }
                     }
 

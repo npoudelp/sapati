@@ -15,6 +15,13 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($conn, $sql);
     $result1 = mysqli_query($conn, $sql1);
     if ($result && $result1) {
+        $details = "account id $aid deleted";
+        $date = date("d-m-Y");
+        $time = date("h:i:sa");
+
+        $log = "INSERT INTO logs (details, uid, date, time) VALUES ('{$details}', {$_SESSION['uid']}, '{$date}', '{$time}');";
+        $insertLog = mysqli_query($conn, $log);
+
         header("location: ../pages/myAccount.php?success_delete");
     } else {
         header("location: ../pages/myAccount.php?failed_delete");
