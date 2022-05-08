@@ -109,3 +109,8 @@ CREATE TABLE `users` (
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+create table logs (
+  lid int(255) primary key auto_increment not null,
+  details varchar(255) not null, uid int(255),
+  foreign key (uid)  references users(uid));
