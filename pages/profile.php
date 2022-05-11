@@ -45,15 +45,17 @@ if ($_SESSION['logged'] != 'true') {
                             <li class="nav-item mx-3">
                                 <a href="./addAccounts.php" class="nav-link">Add Account</a>
                             </li>
-                            <li class="nav-item mx-3 ">
-                                <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
-                            </li>
-                            <li class="nav-item mx-3 text-danger">
+                            <ul class="navbar-nav" style="flex-direction: row;">
+                                <li class="nav-item mx-3 ">
+                                    <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
+                                </li>
+                                <li class="nav-item mx-3 text-danger">
 
-                                <a href="./myAccount.php" class="text-light text-decoration-none">
-                                    <i class="bi bi-person-circle h3" onMouseOver="this.style.color='#0d6efd'" onMouseOut="this.style.color='#FFF'"></i>
-                                </a>
-                            </li>
+                                    <a href="./myAccount.php" class="text-light text-decoration-none">
+                                        <i class="bi bi-person-circle h3" onMouseOver="this.style.color='#0d6efd'" onMouseOut="this.style.color='#FFF'"></i>
+                                    </a>
+                                </li>
+                            </ul>
 
                         </ul>
                     </div>

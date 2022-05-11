@@ -59,15 +59,17 @@ include_once("../include/dbConn.php");
                             <li class="nav-item mx-3">
                                 <a href="./addAccounts.php" class="nav-link">Add Account</a>
                             </li>
-                            <li class="nav-item mx-3 ">
-                                <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a href="./myAccount.php" class="text-primary text-decoration-none">
-                                    <i class="bi bi-person-circle h3" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#0d6efd'"></i>
-                                </a>
-                            </li>
+                            <ul class="navbar-nav" style="flex-direction: row;">
+                                <li class="nav-item mx-3 ">
+                                    <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
+                                </li>
+                                <li class="nav-item mx-3 text-danger">
 
+                                    <a href="./myAccount.php" class="text-light text-decoration-none">
+                                        <i class="bi bi-person-circle h3" style="color: #0d6efd;" onMouseOver="this.style.color='#FFF'" onMouseOut="this.style.color='#0d6efd'"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </ul>
                     </div>
                 </div>
