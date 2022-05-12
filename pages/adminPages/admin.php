@@ -2,7 +2,7 @@
 session_start();
 if ($_SESSION['logged'] != 'true' || $_SESSION['type'] != 'admin') {
     session_destroy();
-    header('location:../pages/login.php');
+    header('location:../login.php');
 }
 
 
@@ -46,15 +46,9 @@ include_once("../include/dbConn.php");
                             <li class="nav-item mx-3">
                                 <a href="./admin.php" class="nav-link active">Profile</a>
                             </li>
-                            <li class="nav-item mx-3">
-                                <a href="#" class="nav-link">Add Credits</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a href="#" class="nav-link">Add Account</a>
-                            </li>
                             <ul class="navbar-nav" style="flex-direction: row;">
                                 <li class="nav-item mx-3 ">
-                                    <a href="../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
+                                    <a href="../../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
                                 </li>
                                 <li class="nav-item mx-3 text-danger">
 
@@ -74,7 +68,11 @@ include_once("../include/dbConn.php");
     <!-- navbar ends here -->
 
 
-
+    <section class="bg-light py-5 text-danger lead text-center">
+        <div class="container">
+            <span>Admin has no power. Features for admin will be added as required.</span>
+        </div>
+    </section>
 
     <!-- misc section -->
     <section class="p-1 bg-warning">

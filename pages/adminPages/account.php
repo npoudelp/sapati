@@ -1,10 +1,11 @@
 <?php
 session_start();
-if ($_SESSION['logged'] != 'true') {
-    header('location:../pages/login.php');
+if ($_SESSION['logged'] != 'true' || $_SESSION['type'] != 'admin') {
+    session_destroy();
+    header('location:../login.php');
 }
 
-$sql3;
+
 include_once("../include/dbConn.php");
 
 
@@ -49,9 +50,9 @@ include_once("../include/dbConn.php");
             <div class="container collapse navbar-collapse justify-content-center" id="navlink">
                 <div class="d-lg-flex">
                     <div class="container">
-                        <ul class="navbar-nav lead">
+                        <ul class="navbar-nav lead">••••
                             <li class="nav-item mx-3">
-                                <a href="./account.php" class="nav-link">Profile</a>
+                                <a href="./admin.php" class="nav-link">Profile</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a href="#" class="nav-link">Add Credits</a>
@@ -79,8 +80,7 @@ include_once("../include/dbConn.php");
     <!-- navbar ends here -->
 
 
-    <!-- User details chart -->
-    <!-- User details chart -->
+
     <section class="bg-light">
         <div class="container-flex mx-3">
             <div class="row">
