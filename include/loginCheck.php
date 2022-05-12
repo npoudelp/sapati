@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION["userName"] = $row["name"];
                 $_SESSION["type"] = $row["type"];
 
-                $details = "Logged in from ip address: " . $ipaddress;
+                $details = "Logged in from : " . $ipaddress;
                 $date = date("d-m-Y");
                 $time = date("h:i:sa");
 
