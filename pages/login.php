@@ -84,7 +84,8 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
                     }
                     ?>
                     <br>
-                    <input type="hidden" name="ip" class="form-control mb-3" id="ip"></input>
+                    <input type="hidden" name="ip" id="ip"></input>
+                    <input type="hidden" name="address" id="address"></input>
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" class="form-control mb-3" <?php echo "value='" . $email . "' "; ?> name="emailId" placeholder="@email address" required autofocus><br>
                     <label for="inputPassword" class="sr-only">Password</label>
@@ -158,6 +159,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
         $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
             console.log(data);
             $("#ip").val(data.ipAddress);
+            $("#address").val("City: " + data.city+", continent: " + data.continentName + ", Country: "+ data.countryName + ", Province: "+data.stateProv);
         });
     </script>
 
