@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
     $ipaddress = $_POST['ip'];
 
     $emailId = $_POST['emailId'];
+    $address = $_POST['address'];
     $password = $_POST['password'];
 
     $checkbox = $_POST['checkbox'];
@@ -27,11 +28,11 @@ if (isset($_POST['submit'])) {
                 $_SESSION["userName"] = $row["name"];
                 $_SESSION["type"] = $row["type"];
 
-                $details = "Logged in from : " . $ipaddress;
+                $details = "Logged in with ip : " . $ipaddress;
                 $date = date("d-m-Y");
                 $time = date("h:i:sa");
 
-                $log = "INSERT INTO logs (details, uid, date, time) VALUES ('{$details}', {$_SESSION['uid']}, '{$date}', '{$time}');";
+                $log = "INSERT INTO logs (details, uid, date, time, address) VALUES ('{$details}', {$_SESSION['uid']}, '{$date}', '{$time}', '{$address}');";
                 $insertLog = mysqli_query($conn, $log);
 
                 if ($checkbox == 'set') {
