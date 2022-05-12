@@ -22,6 +22,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jQuery.js"></script>
 
 </head>
 
@@ -63,7 +64,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     <section class="p-5 text-center">
         <div class="container shadow-lg">
             <div class="text-center container p-3 lead">
-                <form class="form-signin" method="post" action="../include/loginCheck.php">
+                <form class="form-signin" method="post" action="../include/loginCheck.php" onsubmit="return validateForm()">
                     <?php
                     if (isset($_REQUEST['password_not_matched'])) {
                         echo '<span class="lead text-danger">Password not matched</span>';
@@ -83,6 +84,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
                     }
                     ?>
                     <br>
+                    <input type="hidden" name="ip" class="form-control mb-3" id="ip"></input>
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" class="form-control mb-3" <?php echo "value='" . $email . "' "; ?> name="emailId" placeholder="@email address" required autofocus><br>
                     <label for="inputPassword" class="sr-only">Password</label>
@@ -151,6 +153,13 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     <?php
     include_once('../include/footer.php');
     ?>
+
+    <script>
+        $.get("https://ipinfo.io", function(response) {
+            $("#ip").val(response.ip);
+        }, "json");
+    </script>
+
 </body>
 
 </html>
