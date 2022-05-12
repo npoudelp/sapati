@@ -8,4 +8,6 @@ personalized profile with only their data in it.
 As a begining phase project this site may not have every feature that a client wants, but 
 will be updated on further updates.
 
+Link of the project: https://nirojpoudel.com.np/projects/udharo
+
 Database connection file location: /include/dbConn.php
