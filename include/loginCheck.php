@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
                     setcookie("password", $password, time() + (86400 * 30), "/");
                 }
                 if ($row['type'] == 'admin') {
-                    header('location: ../pages/admin.php');
+                    header('location: ../pages/adminPages/admin.php');
                 } else {
                     header('location: ../pages/profile.php');
                 }
