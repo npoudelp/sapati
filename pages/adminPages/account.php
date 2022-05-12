@@ -119,7 +119,7 @@ include_once("../include/dbConn.php");
                             <span class="lead">Change Password</span> <i class="bi bi-chevron-double-down"></i> <br>
                         </span><br>
                         <div class="container collapse navbar-collapse justify-content-center" id="changePassword">
-                            <form action="../include/resetPasswd.php" method="POST">
+                            <form action="../../include/resetPasswd.php" method="POST">
                                 <div class="form-group">
                                     <label for="passwordO">Old Password</label>
                                     <input type="password" id="passwordO" name="passwordO" class="form-control mb-3" placeholder="Old Password" minlength="4" required><br>
@@ -140,14 +140,14 @@ include_once("../include/dbConn.php");
                         </div>
                     </div>
                     <br>
-                    <!-- delete accounts -->
+                    <!-- add admin -->
                     <div class="row text-center border-bottom border-dark">
                         <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#addAdmin">
                             <span class="lead">Add Admin</span> <i class="bi bi-chevron-double-down"></i> <br>
                         </span><br>
                         <div class="container collapse navbar-collapse justify-content-center" id="addAdmin">
-                            <form class="form-signin" method="post" action="../include/registerCheck.php">
-                                <label for="inputEmail" class="sr-only">User Name</label>
+                            <form class="form-signin" method="post" action="../../include/registerCheck.php">
+                                <label for="userName" class="sr-only">User Name</label>
                                 <input type="text" name="userName" id="userName" class="form-control mb-3" placeholder="user name" required autofocus><br>
                                 <label for="inputEmail" class="sr-only">Email address</label>
                                 <input type="email" name="emailId" onkeyup="checkEmail(this.value)" id="inputEmail" class="form-control mb-3" placeholder="@email address" required>
@@ -161,7 +161,7 @@ include_once("../include/dbConn.php");
 
                                 ?>
                                 <br>
-                                <button class="btn btn-lg btn-outline-warning btn-block" name="submitAdmin" type="submit">Sign Up</button>
+                                <button class="btn btn-lg btn-outline-warning btn-block" name="submitAdmin" type="submit">Add</button>
 
                             </form>
                         </div>

@@ -48,11 +48,11 @@ if (isset($_POST['submit'])) {
         $sqlCheck = "SELECT email, type FROM users WHERE email = '{$emailId}';";
         $chaeckEmail = mysqli_query($conn, $sqlCheck);
         if (mysqli_num_rows($chaeckEmail) > 0) {
-            header('location: ../pages/admin.php?email_already_exists');
+            header('location: ../pages/adminPages/account.php?email_already_exists');
         } else {
             $insert = mysqli_query($conn, $sql);
             if ($insert) {
-                header('location: ../pages/admin.php?user_created');
+                header('location: ../pages/adminPages/account.php?user_created');
             } else {
                 echo 'Error creating user';
             }
@@ -60,9 +60,9 @@ if (isset($_POST['submit'])) {
 
         mysqli_close($conn);
     } else {
-        header('location: ../pages/admin.php?password_not_matched');
+        header('location: ../pages/adminPages/account.php?password_not_matched');
         exit();
     }
 } else {
-    header('location: ../pages/register.php');
+    header('location: ../pages/adminPages/register.php');
 }

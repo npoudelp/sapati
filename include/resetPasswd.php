@@ -24,9 +24,17 @@ if (isset($_POST['submit'])) {
             $sql = "UPDATE users SET password = '{$passwordSet}' WHERE email='{$email}';";
             $set = mysqli_query($conn, $sql);
             if ($set) {
-                header("location:../pages/myAccount.php?success");
+                if ($_SESSION['type'] == 'admin') {
+                    header("location:../pages/adminPages/account.php?success");
+                } else {
+                    header("location:../pages/myAccount.php?success");
+                }
             } else {
-                header("location:../pages/myAccount.php?failed_to_update_password");
+                if ($_SESSION['type'] == 'admin') {
+                    header("location:../pages/adminPages/account.php?failed_to_update_password");
+                } else {
+                    header("location:../pages/myAccount.php?failed_to_update_password");
+                }
             }
         } else {
             header("location:../pages/myAccount.php?old_passowrd_not_matched");
