@@ -155,9 +155,10 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     ?>
 
     <script>
-        $.get("https://ipinfo.io", function(response) {
-            $("#ip").val(response.ip);
-        }, "json");
+        $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+            console.log(data);
+            $("#ip").val(data.ipAddress);
+        });
     </script>
 
 </body>
