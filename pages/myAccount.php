@@ -277,7 +277,7 @@ include_once("../include/dbConn.php");
                                 $sn++;
                             }
                         } else {
-                            echo "<span class='text-danger'>No transaction logs available</span>";
+                            echo "<span class='text-danger'>No user activity logs availale</span>";
                         }
                         ?>
 
