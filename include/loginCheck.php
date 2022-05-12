@@ -4,11 +4,12 @@ if (isset($_POST['submit'])) {
 
     $details;
 
+    $ipaddress = $_POST['ip'];
+
     $emailId = $_POST['emailId'];
     $password = $_POST['password'];
 
     $checkbox = $_POST['checkbox'];
-
 
     include_once('./dbConn.php');
     $sql = "SELECT * FROM users WHERE email = '{$emailId}';";
@@ -26,7 +27,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION["userName"] = $row["name"];
                 $_SESSION["type"] = $row["type"];
 
-                $details = "Logged in from user no: " . $_SESSION['uid'];
+                $details = "Logged in from ip address: " . $ipaddress;
                 $date = date("d-m-Y");
                 $time = date("h:i:sa");
 
@@ -34,7 +35,7 @@ if (isset($_POST['submit'])) {
                 $insertLog = mysqli_query($conn, $log);
 
                 if ($checkbox == 'set') {
-                    
+
                     setcookie("email", $row["email"], time() + (86400 * 30), "/");
                     setcookie("password", $password, time() + (86400 * 30), "/");
                 }
