@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         include_once('./dbConn.php');
 
         $sql = "INSERT INTO users (name, email, password, type) values ('{$userName}', '{$emailId}', '{$passwordH}', '{$type}');";
-        $sqlCheck = "SELECT email FROM users, type WHERE email = '{$emailId}';";
+        $sqlCheck = "SELECT email FROM users WHERE email = '{$emailId}';";
         $chaeckEmail = mysqli_query($conn, $sqlCheck);
         if (mysqli_num_rows($chaeckEmail) > 0) {
             header('location: ../pages/register.php?email_already_exists');

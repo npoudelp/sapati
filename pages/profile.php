@@ -240,7 +240,7 @@ if ($_SESSION['logged'] != 'true') {
                                 }
                             }
                         } else {
-                            echo "No transaction to display";
+                            echo "<span class='p-5'>No transaction to display<span>";
                         }
                     }
 
