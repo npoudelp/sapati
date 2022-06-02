@@ -11,7 +11,7 @@ if (isset($_REQUEST['q'])) {
 
         $result1 = mysqli_query($conn, $sql1);
         if ($result1) {
-            $details = "balance no $bid cleared";
+            $details = "balance no $bid cleared to 0, from $balance";
             $date = date("d-m-Y");
             $time = date("h:i:sa");
 
@@ -25,7 +25,7 @@ if (isset($_REQUEST['q'])) {
     $sql = "UPDATE balance  SET balance = '{$balance}' WHERE bid={$bid};";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        $details = "balance paid partailly, remain $balance";
+        $details = "balance no: $bid paid partailly, remain $balance";
         $date = date("d-m-Y");
         $time = date("h:i:sa");
 
