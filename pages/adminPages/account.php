@@ -54,12 +54,6 @@ include_once("../include/dbConn.php");
                             <li class="nav-item mx-3">
                                 <a href="./admin.php" class="nav-link">Profile</a>
                             </li>
-                            <li class="nav-item mx-3">
-                                <a href="#" class="nav-link">Add Credits</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a href="#" class="nav-link">Add Account</a>
-                            </li>
                             <ul class="navbar-nav" style="flex-direction: row;">
                                 <li class="nav-item mx-3 ">
                                     <a href="../../include/logOut.php?q=logOut" class="btn btn-outline-warning">Log Out</a>
