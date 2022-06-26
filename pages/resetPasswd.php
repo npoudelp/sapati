@@ -85,7 +85,6 @@ setcookie('password', null, -1, '/');
         </div>
     </div>
 
-
     <!-- misc section -->
     <section class="p-1 bg-warning">
         <div class="container text-dark text-center">
