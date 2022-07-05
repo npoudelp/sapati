@@ -111,7 +111,7 @@ $costomerCount = $row2['costomerCount'];
 
                 <div class="col-md-4 bg-light">
                     <span class="text-dark h1" id="tCostomer"></span><br>
-                    <span class="text-dark h4"><i class="bi bi-shop-window"></i> Costomers</span>
+                    <span class="text-dark h4"><i class="bi bi-shop-window"></i> Customers</span>
                 </div>
             </div>
         </div>
