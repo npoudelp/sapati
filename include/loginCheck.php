@@ -27,14 +27,14 @@ if (isset($_POST['submit'])) {
                 $_SESSION["emailId"] = $row["email"];
                 $_SESSION["userName"] = $row["name"];
                 $_SESSION["type"] = $row["type"];
-
+                
                 $details = "Logged in with ip : " . $ipaddress;
                 $date = date("d-m-Y");
                 $time = date("h:i:sa");
-
+                
                 $log = "INSERT INTO logs (details, uid, date, time, address) VALUES ('{$details}', {$_SESSION['uid']}, '{$date}', '{$time}', '{$address}');";
                 $insertLog = mysqli_query($conn, $log);
-
+                
                 if ($checkbox == 'set') {
 
                     setcookie("email", $row["email"], time() + (86400 * 30), "/");

@@ -1,9 +1,9 @@
 <?php
 
-$dbUrl = "localhost";
+$dbUrl = "127.0.0.1";
 $dbUser = "root";
 $dbPassword = "root";
-$dbName = "sapati";
+$dbName = "udharo";
 
 $conn = mysqli_connect($dbUrl, $dbUser, $dbPassword, $dbName);
 if (!$conn) {

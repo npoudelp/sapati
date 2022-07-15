@@ -11,9 +11,11 @@ if (isset($_POST['submit'])) {
     if ($type == '0' || $aid == '0') {
         header('location: ../pages/addCredits.php?empty_options');
     } else {
+        
         include_once('./dbConn.php');
         $sql = "INSERT INTO balance (aid, balance, comments, bDate, type, status) VALUES ({$aid}, '{$balance}', '{$comments}', '{$date}', '{$type}', '{$status}');";
         $insert = mysqli_query($conn, $sql);
+        
         if ($insert) {
             $details = "Transaction type $type for account no $aid amount $balance added";
             $date = date("d-m-Y");
@@ -29,5 +31,5 @@ if (isset($_POST['submit'])) {
         mysqli_close($conn);
     }
 } else {
-    header('location: ../pages/addFriends.php');
+    header('location: ../pages/addCredits.php');
 }

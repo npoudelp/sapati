@@ -300,7 +300,7 @@ if ($_SESSION['logged'] != 'true') {
                     let newAmount = balance - amount;
                     $.ajax({
                         type: 'get',
-                        url: '../include/deduct.php?q=' + newAmount + '&r=' + bid,
+                        url: '../include/deduct.php?q=' + newAmount + '&r=' + bid + '&s=' + amount,
                         success: () => {
                             location.reload();
                         }
