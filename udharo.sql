@@ -1,4 +1,11 @@
-CREATE DATABASE udharo;
+CREATE TABLE `users` (
+  `uid` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `type` varchar(10) NOT NULL,
+  PRIMARY KEY (`uid`)
+);
 
 CREATE TABLE `accounts` (
   `uid` int(255) DEFAULT NULL,
@@ -26,15 +33,6 @@ CREATE TABLE `connectedEmails` (
   `eid` int(255) NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`eid`)
-);
-
-CREATE TABLE `users` (
-  `uid` int(255) NOT NULL AUTO_INCREMENT,
-  `name` varchar(25) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `type` varchar(10) NOT NULL,
-  PRIMARY KEY (`uid`)
 );
 
 create table logs (
