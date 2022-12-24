@@ -67,12 +67,105 @@ include_once("../../include/dbConn.php");
     </div>
     <!-- navbar ends here -->
 
-
-    <section class="bg-light py-5 text-danger lead text-center">
+    <!-- user activity logs -->
+    <section class="bg-light py-5 lead text-center">
         <div class="container">
-            <span>Admin has no power. Features for admin will be added as required.</span>
+            <div class="row text-center border-bottom border-dark d-print-table">
+                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#userLogs">
+                    <span class="lead">Users Activity Logs</span> <i class="bi bi-chevron-double-down"></i> <br>
+                </span> <br>
+                <div class="container collapse navbar-collapse  justify-content-center" id="userLogs">
+                    <table class="table" class="print-container" width='100%'>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">SN</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Details</th>
+                                <th scope="col">Address</th>
+                            </tr>
+                        </thead>
+                        <?php
+                        $sn = 1;
+                        $sql = "SELECT * FROM logs;";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo ' 
+                                <tr>
+                                <td scope="row">' . $sn . '</td>
+                                <td scope="row">' . $row['date'] . '</td>
+                                <td scope="row">' . $row['time'] . '</td>
+                                <td scope="row">' . $row['details'] . '</td>
+                                <td scope="row">' . $row['address'] . '</td>
+                                </tr>';
+                                if ($sn >= 50) {
+                                    break;
+                                }
+                                $sn++;
+                            }
+                        } else {
+                            echo "<span class='text-danger'>No user activity logs availale</span>";
+                        }
+                        ?>
+
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- personal data of users -->
+    <section class="bg-light py-5 lead text-center">
+        <div class="container">
+            <div class="row text-center border-bottom border-dark d-print-table">
+                <span class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#userInfo">
+                    <span class="lead">Users Information</span> <i class="bi bi-chevron-double-down"></i> <br>
+                </span> <br>
+                <div class="container collapse navbar-collapse  justify-content-center" id="userInfo">
+                    <table class="table" class="print-container" width='100%'>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">SN</th>
+                                <th scope="col">UserId</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Type</th>
+                            </tr>
+                        </thead>
+                        <?php
+                        $sn = 1;
+                        $sql1 = "SELECT * FROM users;";
+                        $result1 = mysqli_query($conn, $sql1);
+                        if (mysqli_num_rows($result1) > 0) {
+                            while ($row1 = mysqli_fetch_assoc($result1)) {
+                                echo ' 
+                                <tr>
+                                <td scope="row">' . $sn . '</td>
+                                <td scope="row">' . $row1['uid'] . '</td>
+                                <td scope="row">' . $row1['name'] . '</td>
+                                <td scope="row">' . $row1['email'] . '</td>
+                                <td scope="row">' . $row1['type'] . '</td>
+                                <td scope="row"> <a href="./userDetails.php?q=' . $row1['uid'] .'" class="btn btn-danger"">Details</span></td>
+                                </tr>';
+                                if ($sn >= 50) {
+                                    break;
+                                }
+                                $sn++;
+                            }
+                        } else {
+                            echo "<span class='text-danger'>No user activity logs availale</span>";
+                        }
+                        ?>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
     <!-- misc section -->
     <section class="p-1 bg-warning">
