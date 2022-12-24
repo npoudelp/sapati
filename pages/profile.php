@@ -176,7 +176,7 @@ if ($_SESSION['logged'] != 'true') {
                     } else {
                         $sql = "SELECT A.name,A.address, A.contact, B.status, B.type, B.balance, B.bDate, B.bid, A.aid, B.comments FROM users AS U, accounts AS A, balance AS B WHERE U.uid=A.uid AND A.aid=B.aid AND U.uid={$_SESSION['uid']};";
                         $result = mysqli_query($conn, $sql);
-                        header('location: ../pages/addCredits.php?empty_options');
+                        // header('location: ../pages/addCredits.php?empty_options');
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
                                 if ($row['status'] == 'show') {
