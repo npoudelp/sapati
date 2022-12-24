@@ -1,6 +1,4 @@
 <?php
-include_once('./footer.php');
-
 echo ' 
 <footer class="p-1 bg-dark text-white text-center position-relative">
     <div class="container">
