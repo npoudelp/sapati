@@ -37,8 +37,8 @@ if (isset($_POST['submit'])) {
                 
                 if ($checkbox == 'set') {
 
-                    setcookie("email", $row["email"], time() + (86400 * 30), "/pages/login.php");
-                    setcookie("password", $password, time() + (86400 * 30), "/pages/login.php");
+                    setcookie("email", $row["email"], time() + (86400 * 30), "/");
+                    setcookie("password", $password, time() + (86400 * 30), "/");
                 }
                 if ($row['type'] == 'admin') {
                     header('location: ../pages/adminPages/admin.php');
