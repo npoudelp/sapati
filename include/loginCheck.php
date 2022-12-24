@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $emailId = $_POST['emailId'];
     $address = $_POST['address'];
     $password = $_POST['password'];
-
+    $checkbox = "";
     $checkbox = $_POST['checkbox'];
 
     include_once('./dbConn.php');
@@ -37,8 +37,8 @@ if (isset($_POST['submit'])) {
                 
                 if ($checkbox == 'set') {
 
-                    setcookie("email", $row["email"], time() + (86400 * 30), "/");
-                    setcookie("password", $password, time() + (86400 * 30), "/");
+                    setcookie("email", $row["email"], time() + (86400 * 30), "/pages/login.php");
+                    setcookie("password", $password, time() + (86400 * 30), "/pages/login.php");
                 }
                 if ($row['type'] == 'admin') {
                     header('location: ../pages/adminPages/admin.php');
