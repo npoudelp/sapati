@@ -1,6 +1,7 @@
 <?php
-$email;
-$passwd;
+$email = "";
+$passwd = "";
+$count = 0;
 
 if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     $email = $_COOKIE["email"];

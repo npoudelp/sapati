@@ -2,11 +2,11 @@
 session_start();
 if ($_SESSION['logged'] != 'true' || $_SESSION['type'] != 'admin') {
     session_destroy();
-    header('location:../login.php');
+    header('location:../../login.php');
 }
 
 
-include_once("../include/dbConn.php");
+include_once("../../include/dbConn.php");
 
 
 
@@ -92,7 +92,7 @@ include_once("../include/dbConn.php");
 
     <!-- footer starts here -->
     <?php
-    include_once('../include/footer.php');
+    include_once('../../include/footer.php');
     ?>
 
 

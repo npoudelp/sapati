@@ -6,7 +6,7 @@ if ($_SESSION['logged'] != 'true' || $_SESSION['type'] != 'admin') {
 }
 
 
-include_once("../include/dbConn.php");
+include_once("../../include/dbConn.php");
 
 
 
@@ -187,7 +187,7 @@ include_once("../include/dbConn.php");
 
     <!-- footer starts here -->
     <?php
-    include_once('../include/footer.php');
+    include_once('../../include/footer.php');
     ?>
 
 
